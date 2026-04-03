@@ -1,0 +1,44 @@
+{
+  "groups": [
+    {
+      "key": "languages",
+      "title": {
+        "ru": "Языки программирования",
+        "en": "Programming languages"
+      },
+      "items": ["Golang", "Python", "C", "PHP", "Rust"]
+    },
+    {
+      "key": "backend",
+      "title": {
+        "ru": "Backend и инфраструктура",
+        "en": "Backend and infrastructure"
+      },
+      "items": ["gRPC", "REST", "Microservices", "Kubernetes", "Docker", "Linux", "Nginx", "GitLab CI/CD"]
+    },
+    {
+      "key": "data",
+      "title": {
+        "ru": "Базы данных и очереди",
+        "en": "Databases and queues"
+      },
+      "items": ["PostgreSQL", "Redis", "MongoDB", "Etcd", "Kafka", "RabbitMQ"]
+    },
+    {
+      "key": "observability",
+      "title": {
+        "ru": "Мониторинг и аналитика",
+        "en": "Monitoring and analytics"
+      },
+      "items": ["Grafana", "Prometheus", "Statshouse", "pprof", "OneCloud", "PlantUML"]
+    },
+    {
+      "key": "cv",
+      "title": {
+        "ru": "ML / Computer Vision",
+        "en": "ML / Computer Vision"
+      },
+      "items": ["TensorFlow", "CUDA", "Numba", "multiprocessing", "Deep Learning", "Computer Vision"]
+    }
+  ]
+}

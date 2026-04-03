@@ -1,0 +1,87 @@
+{
+  "items": [
+    {
+      "company": "VK",
+      "country": "Russia",
+      "period": "Aug 2024 - Present",
+      "role": {
+        "ru": "Lead / Senior+ Golang",
+        "en": "Lead / Senior+ Golang"
+      },
+      "highlights": [
+        {
+          "ru": "High-load backend, observability, CI/CD, code review",
+          "en": "High-load backend, observability, CI/CD, code review"
+        }
+      ]
+    },
+    {
+      "company": "Pasul Ltd",
+      "country": "Russia",
+      "period": "Sep 2023 - Feb 2024",
+      "role": {
+        "ru": "Back-end developer",
+        "en": "Back-end developer"
+      },
+      "highlights": [
+        {
+          "ru": "Golang, Java, gRPC / REST, VPN gateway",
+          "en": "Golang, Java, gRPC / REST, VPN gateway"
+        }
+      ]
+    },
+    {
+      "company": "X5 Digital",
+      "country": "Russia",
+      "period": "Sep 2023 - Feb 2024",
+      "role": {
+        "ru": "Middle backend developer",
+        "en": "Middle backend developer"
+      },
+      "highlights": [
+        {
+          "ru": "Golang, PHP, Kafka, PostgreSQL, Redis",
+          "en": "Golang, PHP, Kafka, PostgreSQL, Redis"
+        }
+      ]
+    },
+    {
+      "company": "ISGNeuro / citis",
+      "country": "Russia",
+      "period": "Jul 2021 - Aug 2022",
+      "role": {
+        "ru": "Software Engineer / Computer Vision Engineer",
+        "en": "Software Engineer / Computer Vision Engineer"
+      },
+      "highlights": [
+        {
+          "ru": "Python, Django, Flask, Qt, TensorFlow, CUDA",
+          "en": "Python, Django, Flask, Qt, TensorFlow, CUDA"
+        }
+      ]
+    },
+    {
+      "company": "GitHub",
+      "country": "Global",
+      "period": "Ongoing",
+      "role": {
+        "ru": "Open-source activity",
+        "en": "Open-source activity"
+      },
+      "highlights": [
+        {
+          "ru": "Open-source activity and 59 repositories",
+          "en": "Open-source activity and 59 repositories"
+        },
+        {
+          "ru": "Pull Shark and Arctic Code Vault Contributor",
+          "en": "Pull Shark and Arctic Code Vault Contributor"
+        },
+        {
+          "ru": "Практика на repo-level: парсеры, ML, C, bots",
+          "en": "Repo-level practice: parsers, ML, C, bots"
+        }
+      ]
+    }
+  ]
+}

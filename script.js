@@ -2,279 +2,385 @@ const year = document.getElementById("year");
 const langButtons = document.querySelectorAll(".lang-btn");
 const translatable = document.querySelectorAll("[data-i18n]");
 
-const translations = {
+const nodes = {
+  certificateCount: document.getElementById("certificate-count"),
+  educationCount: document.getElementById("education-count"),
+  certificatesList: document.getElementById("certificates-list"),
+  heroEyebrow: document.querySelector(".hero-copy .eyebrow"),
+  heroTitle: document.querySelector(".hero-copy h1"),
+  heroSubtitle: document.querySelector(".name-subtitle"),
+  heroLead: document.querySelector(".hero-copy .lead"),
+  heroFocusLabel: document.querySelector(".panel-card-main .panel-label"),
+  heroFocusTitle: document.querySelector(".panel-card-main h2"),
+  heroFocusText: document.querySelector(".panel-card-main p:last-of-type"),
+  heroRoleLabel: document.querySelector(".panel-grid .panel-card:first-child .panel-label"),
+  heroRoleValue1: document.querySelector(".panel-grid .panel-card:first-child p:nth-of-type(2)"),
+  heroRoleValue2: document.querySelector(".panel-grid .panel-card:first-child p:nth-of-type(3)"),
+  heroWorkplaceLabel: document.querySelector(".panel-grid .panel-card:last-child .panel-label"),
+  heroWorkplaceCompany: document.querySelector(".panel-grid .panel-card:last-child p:nth-of-type(2)"),
+  heroWorkplaceLocation: document.querySelector(".panel-grid .panel-card:last-child p:nth-of-type(3)"),
+  aboutTitle: document.querySelector("#about .section-title h2"),
+  aboutList: document.querySelector("#about .resume-list"),
+  aboutText: document.querySelector("#about .content-card > p"),
+  experienceTitle: document.querySelector("#experience .section-title h2"),
+  experienceTimeline: document.querySelector("#experience .timeline"),
+  stackTitle: document.querySelector("#stack .section-title h2"),
+  stackGrid: document.querySelector("#stack .stack-grid"),
+  projectsTitle: document.querySelector("#projects .section-title h2"),
+  projectsGrid: document.querySelector("#projects .projects"),
+  educationTitle: document.querySelector("#education .section-title h2"),
+  educationLabel: document.querySelector("#education .panel-label"),
+  educationText: document.querySelector("#education .education-text"),
+  contactTitle: document.querySelector("#contact h2"),
+  contactEyebrow: document.querySelector("#contact .eyebrow"),
+  contactText: document.querySelector("#contact .contact-card > p"),
+  contactGithub: document.querySelector("#contact .hero-actions .button"),
+};
+
+const labels = {
   ru: {
-    "nav.about": "Резюме",
+    "nav.about": "Обо мне",
     "nav.experience": "Опыт",
     "nav.projects": "Проекты",
     "nav.stack": "Стек",
     "nav.education": "Сертификаты",
     "nav.contact": "Контакты",
-    "hero.eyebrow": "VK · Russia · Moscow",
-    "hero.title": "Artem K / Кущ Артем / Kushch Artem",
-    "hero.subtitle": "Кущ Артем / Kushch Artem",
-    "hero.lead":
-      "Senior+ Golang developer и backend-разработчик на Python, с опытом Computer Vision. На этой странице собраны опыт, сертификаты, GitHub-активность и проекты в формате короткого резюме.",
     "hero.github": "GitHub",
     "hero.gitlab": "GitLab",
     "hero.projects": "Смотреть проекты",
-    "hero.panel.focus.label": "Resume",
-    "hero.panel.focus.title": "Senior+ Go, Python и Computer Vision",
-    "hero.panel.focus.text":
-      "Senior+ Golang developer first, Python second, Computer Vision experience after that. Backend-сервисы, прикладной ML и инженерные задачи с измеримым результатом.",
-    "hero.panel.achievements.label": "Current role",
-    "hero.panel.achievements.value1": "Senior+ Golang developer",
-    "hero.panel.achievements.value2": "Python / Computer Vision",
-    "hero.panel.location.label": "Current workplace",
-    "stats.repos.label": "Repos",
-    "stats.companies.label": "Companies",
-    "stats.certificates.label": "Certificates",
-    "stats.profile.label": "Profile",
-    "about.eyebrow": "Обо мне",
-    "about.title": "Короткий профиль для резюме",
-    "about.point1": "Senior+ Golang developer и backend-разработчик на Python.",
-    "about.point2": "Computer Vision Research Engineer опыт после backend-профиля.",
-    "about.point3": "Опыт в VK, Pasul Ltd, X5 Digital, ISGNeuro и citis.",
-    "about.point4": "GitHub-репозитории, хакатоны и сертификаты подтверждают практику, а не только интерес.",
-    "about.text2":
-      "Для сайта я перенёс акцент с «портфолио» на «резюме»: тут должны быстро читаться опыт, сертификаты, GitHub-активность и проекты с конкретной инженерной ценностью.",
     "experience.eyebrow": "Опыт",
     "experience.title": "Ключевые роли, страны и годы",
-    "experience.vk.title": "VK",
-    "experience.vk.1": "Russia, Aug 2024 - Present",
-    "experience.vk.2": "Lead / Senior+ Golang",
-    "experience.vk.3": "High-load backend, observability, CI/CD, code review",
-    "experience.pasul.title": "Pasul Ltd",
-    "experience.pasul.1": "Russia, Sep 2023 - Feb 2024",
-    "experience.pasul.2": "Back-end developer",
-    "experience.pasul.3": "Golang, Java, gRPC / REST, VPN gateway",
-    "experience.x5.title": "X5 Digital",
-    "experience.x5.1": "Russia, Sep 2023 - Feb 2024",
-    "experience.x5.2": "Middle backend developer",
-    "experience.x5.3": "Golang, PHP, Kafka, PostgreSQL, Redis",
-    "experience.edu.title": "ISGNeuro / citis",
-    "experience.edu.1": "Russia, Jul 2021 - Aug 2022",
-    "experience.edu.2": "Software Engineer / Computer Vision Engineer",
-    "experience.edu.3": "Python, Django, Flask, Qt, TensorFlow, CUDA",
-    "experience.github.title": "GitHub",
-    "experience.github.1": "Open-source activity and 59 repositories",
-    "experience.github.2": "Pull Shark and Arctic Code Vault Contributor",
-    "experience.github.3": "Практика на repo-level: парсеры, ML, C, bots",
     "stack.eyebrow": "Стек",
     "stack.title": "Стек, сгруппированный по слоям",
-    "stack.group.languages": "Языки программирования",
-    "stack.group.backend": "Backend и инфраструктура",
-    "stack.group.data": "Базы данных и очереди",
-    "stack.group.observability": "Мониторинг и аналитика",
-    "stack.group.cv": "ML / Computer Vision",
     "projects.eyebrow": "Проекты",
     "projects.title": "Выбранные репозитории и инженерные кейсы",
-    "projects.p1":
-      "Хакатон Cup IT, 3 место. Подходит как доказательство быстрого data science цикла: постановка, эксперимент, оценка и прикладной результат.",
-    "projects.p2":
-      "Сравнение ML-моделей на pulsar dataset. Хорошо показывает экспериментальный подход, сравнение метрик и аккуратную работу с данными.",
-    "projects.p3":
-      "Финальный этап хакатона Fintech Security Superhero. Это удобный пример командной работы, быстрой интеграции и доведения идеи до результата.",
-    "projects.p4":
-      "School 42 проект на C: графы, поиск путей и аккуратная реализация. Это сильный маркер алгоритмического фундамента и инженерной дисциплины.",
-    "projects.p5":
-      "Неофициальный HLTV Python API. Подходит для демонстрации парсинга, API-обёртки и аккуратной работы с внешним сервисом.",
-    "projects.p6":
-      "Эксперименты с embedding layers и contrastive loss на MNIST. Хорошая иллюстрация интереса к deep learning и экспериментам с архитектурами.",
     "projects.open": "Открыть",
     "edu.eyebrow": "Сертификаты",
     "edu.title": "Сертификаты и курсы",
-    "edu.cert.title": "Certificates",
-    "edu.hack.title": "Hackathons",
-    "edu.hack.1": "Cup-IT DS 2020, 3rd place — практический результат с командной работой и дедлайнами.",
-    "edu.hack.2": "Fintech Security Superhero, final stage — подтверждение способности доводить идеи до финала.",
-    "edu.course.title": "Courses",
-    "edu.course.1": "Golang — усиливает backend-профиль и системное мышление.",
-    "edu.course.2": "Docker for beginners — полезно для доставки и воспроизводимых окружений.",
-    "edu.course.3": "Accelerating CUDA C++ / CUDA Python / GCP ML — важный слой для CV и ML задач.",
+    "edu.summary.label": "Всего",
+    "edu.summary.text": "Курсы, сертификации и хакатоны собраны в отдельную секцию.",
     "contact.eyebrow": "Контакты",
     "contact.title": "Связаться со мной",
-    "contact.text":
-      "Ниже основные каналы связи. Страница остаётся лёгкой, но теперь читается как краткое резюме с упором на опыт, сертификаты и GitHub.",
     "contact.github": "Профиль GitHub",
   },
   en: {
-    "nav.about": "Resume",
+    "nav.about": "About",
     "nav.experience": "Experience",
     "nav.projects": "Projects",
     "nav.stack": "Stack",
     "nav.education": "Certificates",
     "nav.contact": "Contact",
-    "hero.eyebrow": "VK · Russia · Moscow",
-    "hero.title": "Artem K / Kushch Artem / Кущ Артем",
-    "hero.subtitle": "Kushch Artem / Кущ Артем",
-    "hero.lead":
-      "Senior+ Golang developer and backend developer in Python, with Computer Vision experience. This page highlights experience, certificates, GitHub activity and projects as a short resume.",
     "hero.github": "GitHub",
     "hero.gitlab": "GitLab",
     "hero.projects": "View projects",
-    "hero.panel.focus.label": "Resume",
-    "hero.panel.focus.title": "Senior+ Go, Python and Computer Vision",
-    "hero.panel.focus.text":
-      "Senior+ Golang developer first, Python second, Computer Vision experience after that. Backend services, applied ML and engineering tasks with measurable results.",
-    "hero.panel.achievements.label": "Current role",
-    "hero.panel.achievements.value1": "Senior+ Golang developer",
-    "hero.panel.achievements.value2": "Python / Computer Vision",
-    "hero.panel.location.label": "Current workplace",
-    "stats.repos.label": "Repos",
-    "stats.companies.label": "Companies",
-    "stats.certificates.label": "Certificates",
-    "stats.profile.label": "Profile",
-    "about.eyebrow": "About",
-    "about.title": "Short profile for the resume",
-    "about.point1": "Senior+ Golang developer and backend developer in Python.",
-    "about.point2": "Computer Vision Research Engineer experience after the backend profile.",
-    "about.point3": "Experience at VK, Pasul Ltd, X5 Digital, ISGNeuro and citis.",
-    "about.point4": "GitHub repositories, hackathons and certificates show practice, not just interest.",
-    "about.text2":
-      "For the site I shifted the emphasis from a pure portfolio to a resume: experience, certificates, GitHub activity and projects with clear engineering value should be visible first.",
     "experience.eyebrow": "Experience",
     "experience.title": "Key roles, countries and years",
-    "experience.vk.title": "VK",
-    "experience.vk.1": "Russia, Aug 2024 - Present",
-    "experience.vk.2": "Lead / Senior+ Golang",
-    "experience.vk.3": "High-load backend, observability, CI/CD, code review",
-    "experience.pasul.title": "Pasul Ltd",
-    "experience.pasul.1": "Russia, Sep 2023 - Feb 2024",
-    "experience.pasul.2": "Back-end developer",
-    "experience.pasul.3": "Golang, Java, gRPC / REST, VPN gateway",
-    "experience.x5.title": "X5 Digital",
-    "experience.x5.1": "Russia, Sep 2023 - Feb 2024",
-    "experience.x5.2": "Middle backend developer",
-    "experience.x5.3": "Golang, PHP, Kafka, PostgreSQL, Redis",
-    "experience.edu.title": "ISGNeuro / citis",
-    "experience.edu.1": "Russia, Jul 2021 - Aug 2022",
-    "experience.edu.2": "Software Engineer / Computer Vision Engineer",
-    "experience.edu.3": "Python, Django, Flask, Qt, TensorFlow, CUDA",
-    "experience.github.title": "GitHub",
-    "experience.github.1": "Open-source activity and 59 repositories",
-    "experience.github.2": "Pull Shark and Arctic Code Vault Contributor",
-    "experience.github.3": "Repo-level practice: parsers, ML, C, bots",
     "stack.eyebrow": "Stack",
     "stack.title": "Stack grouped by layers",
-    "stack.group.languages": "Programming languages",
-    "stack.group.backend": "Backend and infrastructure",
-    "stack.group.data": "Databases and queues",
-    "stack.group.observability": "Monitoring and analytics",
-    "stack.group.cv": "ML / Computer Vision",
     "projects.eyebrow": "Projects",
     "projects.title": "Selected repositories and engineering cases",
-    "projects.p1":
-      "Cup IT hackathon, 3rd place. A proof of a fast data science cycle: problem framing, experiment, evaluation and applied result.",
-    "projects.p2":
-      "Comparison of ML models on the pulsar dataset. Shows an experimental mindset, metric comparison and careful work with data.",
-    "projects.p3":
-      "Final stage of the Fintech Security Superhero hackathon. A useful example of teamwork, fast integration and shipping an idea to the end.",
-    "projects.p4":
-      "School 42 project in C: graphs, path finding and careful implementation. A strong marker of algorithmic fundamentals and engineering discipline.",
-    "projects.p5":
-      "Unofficial HLTV Python API. Good for demonstrating parsing, API wrapping and careful work with an external service.",
-    "projects.p6":
-      "Experiments with embedding layers and contrastive loss on MNIST. A good illustration of interest in deep learning and model architecture experiments.",
     "projects.open": "Open",
     "edu.eyebrow": "Certificates",
     "edu.title": "Certificates and courses",
-    "edu.cert.title": "Certificates",
-    "edu.hack.title": "Hackathons",
-    "edu.hack.1": "Cup-IT DS 2020, 3rd place — practical result with teamwork and deadlines.",
-    "edu.hack.2": "Fintech Security Superhero, final stage — proof of ability to bring ideas to the finish line.",
-    "edu.course.title": "Courses",
-    "edu.course.1": "Golang — strengthens the backend profile and systems thinking.",
-    "edu.course.2": "Docker for beginners — useful for delivery and reproducible environments.",
-    "edu.course.3": "Accelerating CUDA C++ / CUDA Python / GCP ML — a relevant layer for CV and ML tasks.",
+    "edu.summary.label": "Total",
+    "edu.summary.text": "Courses, certifications and hackathons are grouped into a dedicated section.",
     "contact.eyebrow": "Contact",
     "contact.title": "Get in touch",
-    "contact.text":
-      "Below are the main ways to reach me. The page stays lightweight, but now reads as a short resume with a focus on experience, certificates and GitHub.",
     "contact.github": "GitHub profile",
   },
 };
 
-function setLanguage(lang) {
-  const dictionary = translations[lang];
+let currentLanguage = window.localStorage.getItem("portfolio-lang") || "ru";
+const state = {
+  profile: null,
+  experience: [],
+  stack: [],
+  projects: [],
+  certificates: [],
+};
 
-  document.documentElement.lang = lang;
-  year.textContent = new Date().getFullYear().toString();
+function localized(value) {
+  if (value == null) {
+    return "";
+  }
+
+  if (typeof value === "string") {
+    return value;
+  }
+
+  return value[currentLanguage] || value.ru || value.en || "";
+}
+
+function setText(node, value) {
+  if (node) {
+    node.textContent = value;
+  }
+}
+
+async function loadJson(path) {
+  const response = await fetch(path);
+  if (!response.ok) {
+    throw new Error(`Failed to load ${path}: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+async function loadData() {
+  const [profile, experience, stack, projects, certificates] = await Promise.all([
+    loadJson("data/profile.json"),
+    loadJson("data/experience.json"),
+    loadJson("data/stack.json"),
+    loadJson("data/projects.json"),
+    loadJson("data/certificates.json"),
+  ]);
+
+  state.profile = profile;
+  state.experience = Array.isArray(experience.items) ? experience.items : [];
+  state.stack = Array.isArray(stack.groups) ? stack.groups : [];
+  state.projects = Array.isArray(projects.items) ? projects.items : [];
+  state.certificates = Array.isArray(certificates.certificates)
+    ? certificates.certificates
+    : Array.isArray(certificates.items)
+      ? certificates.items
+      : [];
+}
+
+function renderTranslations() {
+  const dictionary = labels[currentLanguage];
 
   translatable.forEach((element) => {
-    const key = element.dataset.i18n;
-    const value = dictionary[key];
+    const value = dictionary[element.dataset.i18n];
     if (value) {
       element.innerHTML = value;
     }
   });
 
   langButtons.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.lang === lang);
+    button.classList.toggle("is-active", button.dataset.lang === currentLanguage);
   });
+
+  setText(year, String(new Date().getFullYear()));
+  document.documentElement.lang = currentLanguage;
 }
 
-function renderCertificates(certificates) {
-  const container = document.getElementById("certificates-list");
-  const counters = [
-    document.getElementById("certificate-count"),
-    document.getElementById("education-count"),
-  ];
-  const lang = currentLanguage;
-  const items = Array.isArray(certificates) ? certificates : certificates.items || [];
-
-  if (!container) {
+function renderHero() {
+  const profile = state.profile;
+  if (!profile) {
     return;
   }
 
-  container.innerHTML = items
+  setText(nodes.heroEyebrow, localized(profile.hero.eyebrow));
+  setText(nodes.heroTitle, localized(profile.hero.title));
+  setText(nodes.heroSubtitle, localized(profile.hero.subtitle));
+  setText(nodes.heroLead, localized(profile.hero.lead));
+  setText(nodes.heroFocusLabel, localized(profile.panel.focus.label));
+  setText(nodes.heroFocusTitle, localized(profile.panel.focus.title));
+  setText(nodes.heroFocusText, localized(profile.panel.focus.text));
+  setText(nodes.heroRoleLabel, localized(profile.panel.role.label));
+  setText(nodes.heroRoleValue1, localized(profile.panel.role.values[0]));
+  setText(nodes.heroRoleValue2, localized(profile.panel.role.values[1]));
+  setText(nodes.heroWorkplaceLabel, localized(profile.panel.workplace.label));
+  setText(nodes.heroWorkplaceCompany, profile.panel.workplace.company);
+  setText(nodes.heroWorkplaceLocation, localized(profile.panel.workplace.location));
+
+  setText(nodes.contactGithub, labels[currentLanguage]["contact.github"]);
+
+  if (nodes.certificateCount) {
+    nodes.certificateCount.textContent = String(state.certificates.length);
+  }
+}
+
+function renderAbout() {
+  const profile = state.profile;
+  if (!profile) {
+    return;
+  }
+
+  setText(nodes.aboutTitle, localized(profile.about.title));
+  setText(nodes.aboutText, localized(profile.about.text));
+
+  if (nodes.aboutList) {
+    nodes.aboutList.innerHTML = profile.about.points
+      .map((point) => `<li>${localized(point)}</li>`)
+      .join("");
+  }
+}
+
+function renderExperience() {
+  if (nodes.experienceTitle) {
+    setText(nodes.experienceTitle, labels[currentLanguage]["experience.title"]);
+  }
+
+  if (!nodes.experienceTimeline) {
+    return;
+  }
+
+  nodes.experienceTimeline.innerHTML = state.experience
+    .map((item) => {
+      const title = item.company;
+      const period = localized(item.period);
+      const role = localized(item.role);
+      const highlights = (item.highlights || [])
+        .map((highlight) => `<li>${localized(highlight)}</li>`)
+        .join("");
+
+      return `
+        <div>
+          <h3>${title}</h3>
+          <ul>
+            <li>${item.country}, ${period}</li>
+            <li>${role}</li>
+            ${highlights}
+          </ul>
+        </div>
+      `;
+    })
+    .join("");
+}
+
+function renderStack() {
+  if (nodes.stackTitle) {
+    setText(nodes.stackTitle, labels[currentLanguage]["stack.title"]);
+  }
+
+  if (!nodes.stackGrid) {
+    return;
+  }
+
+  nodes.stackGrid.innerHTML = state.stack
     .map(
-      (certificate) => `
-        <article class="certificate-card">
-          <h3>${certificate.title[lang] || certificate.title.ru}</h3>
-          <div class="certificate-meta">
-            <span>${certificate.issuer[lang] || certificate.issuer.ru}</span>
-            <span>${certificate.year}</span>
+      (group) => `
+        <article class="stack-card">
+          <h3>${localized(group.title)}</h3>
+          <div class="chips">
+            ${group.items.map((item) => `<span>${item}</span>`).join("")}
           </div>
-          <a href="${certificate.href}" target="_blank" rel="noreferrer">
-            ${lang === "en" ? "Open PDF" : "Открыть PDF"}
-          </a>
+        </article>
+      `
+    )
+    .join("");
+}
+
+function renderProjects() {
+  if (nodes.projectsTitle) {
+    setText(nodes.projectsTitle, labels[currentLanguage]["projects.title"]);
+  }
+
+  if (!nodes.projectsGrid) {
+    return;
+  }
+
+  nodes.projectsGrid.innerHTML = state.projects
+    .map(
+      (project) => `
+        <article class="project-card reveal">
+          <p class="project-index">${project.id}</p>
+          <h3>${project.title}</h3>
+          <p>${localized(project.description)}</p>
+          <div class="project-tags">
+            ${project.tags.map((tag) => `<span>${tag}</span>`).join("")}
+          </div>
+          <a href="${project.href}" target="_blank" rel="noreferrer">${labels[currentLanguage]["projects.open"]}</a>
         </article>
       `
     )
     .join("");
 
-  counters.forEach((counter) => {
-    if (counter) {
-      counter.textContent = String(items.length);
-    }
+  document.querySelectorAll("#projects .reveal").forEach((element) => {
+    element.classList.add("is-visible");
   });
 }
 
-async function loadCertificates() {
-  try {
-    const response = await fetch("data/certificates.json");
-    if (!response.ok) {
-      throw new Error(`Failed to load certificates: ${response.status}`);
-    }
+function renderCertificates() {
+  if (!nodes.certificatesList) {
+    return;
+  }
 
-    const payload = await response.json();
-    const certificates = Array.isArray(payload.certificates) ? payload.certificates : payload;
-    renderCertificates(certificates);
-  } catch (error) {
-    renderCertificates([]);
+  nodes.certificatesList.innerHTML = state.certificates
+    .map((certificate) => {
+      const issuer = certificate.issuer || certificate.category || "";
+      const link = certificate.href
+        ? `<a href="${certificate.href}" target="_blank" rel="noreferrer">${
+            currentLanguage === "en" ? "Open PDF" : "Открыть PDF"
+          }</a>`
+        : "";
+      const year = certificate.year ? `<span>${certificate.year}</span>` : "";
+
+      return `
+        <article class="certificate-card">
+          <h3>${localized(certificate.title)}</h3>
+          <div class="certificate-meta">
+            <span>${localized(issuer)}</span>
+            ${year}
+          </div>
+          ${link}
+        </article>
+      `;
+    })
+    .join("");
+
+  if (nodes.educationCount) {
+    nodes.educationCount.textContent =
+      currentLanguage === "en"
+        ? `${state.certificates.length} certificates`
+        : `${state.certificates.length} сертификатов`;
+  }
+
+  if (nodes.educationLabel) {
+    setText(nodes.educationLabel, labels[currentLanguage]["edu.summary.label"]);
+  }
+
+  if (nodes.educationText) {
+    setText(nodes.educationText, labels[currentLanguage]["edu.summary.text"]);
   }
 }
 
-setLanguage(currentLanguage);
+function renderContact() {
+  if (nodes.contactEyebrow) {
+    setText(nodes.contactEyebrow, labels[currentLanguage]["contact.eyebrow"]);
+  }
 
-loadCertificates();
+  if (nodes.contactTitle) {
+    setText(nodes.contactTitle, labels[currentLanguage]["contact.title"]);
+  }
+
+  if (nodes.contactText && state.profile) {
+    setText(nodes.contactText, localized(state.profile.contact.text));
+  }
+}
+
+function renderAll() {
+  renderTranslations();
+  renderHero();
+  renderAbout();
+  renderExperience();
+  renderStack();
+  renderProjects();
+  renderCertificates();
+  renderContact();
+}
+
+async function bootstrap() {
+  try {
+    await loadData();
+  } catch {
+    state.profile = null;
+    state.experience = [];
+    state.stack = [];
+    state.projects = [];
+    state.certificates = [];
+  }
+
+  renderAll();
+}
 
 langButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const lang = button.dataset.lang;
     window.localStorage.setItem("portfolio-lang", lang);
-    setLanguage(lang);
+    currentLanguage = lang;
+    renderAll();
   });
 });
 
@@ -301,3 +407,5 @@ if ("IntersectionObserver" in window) {
     element.classList.add("is-visible");
   });
 }
+
+bootstrap();

@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": "01",
+      "title": "CupIT2020-DS-final",
+      "href": "https://github.com/artemk1337/CupIT2020-DS-final",
+      "description": {
+        "ru": "Хакатон Cup IT, 3 место. Подходит как доказательство быстрого data science цикла: постановка, эксперимент, оценка и прикладной результат.",
+        "en": "Cup IT hackathon, 3rd place. A proof of a fast data science cycle: problem framing, experiment, evaluation and applied result."
+      },
+      "tags": ["Data Science", "Hackathon", "3rd place"]
+    },
+    {
+      "id": "02",
+      "title": "ML_test_all_models_on_pulsar",
+      "href": "https://github.com/artemk1337/ML_test_all_models_on_pulsar",
+      "description": {
+        "ru": "Сравнение ML-моделей на pulsar dataset. Хорошо показывает экспериментальный подход, сравнение метрик и аккуратную работу с данными.",
+        "en": "Comparison of ML models on the pulsar dataset. Shows an experimental mindset, metric comparison and careful work with data."
+      },
+      "tags": ["Python", "ML", "Metrics"]
+    },
+    {
+      "id": "03",
+      "title": "Fintech-Security-Superhero-hack-Final-stage",
+      "href": "https://github.com/artemk1337/Fintech-Security-Superhero-hack-Final-stage",
+      "description": {
+        "ru": "Финальный этап хакатона Fintech Security Superhero. Это удобный пример командной работы, быстрой интеграции и доведения идеи до результата.",
+        "en": "Final stage of the Fintech Security Superhero hackathon. A useful example of teamwork, fast integration and shipping an idea to the end."
+      },
+      "tags": ["Hackathon", "Teamwork", "Delivery"]
+    },
+    {
+      "id": "04",
+      "title": "lem-in",
+      "href": "https://github.com/artemk1337/lem-in",
+      "description": {
+        "ru": "School 42 проект на C: графы, поиск путей и аккуратная реализация. Это сильный маркер алгоритмического фундамента и инженерной дисциплины.",
+        "en": "School 42 project in C: graphs, path finding and careful implementation. A strong marker of algorithmic fundamentals and engineering discipline."
+      },
+      "tags": ["C", "Algorithms", "Graphs"]
+    },
+    {
+      "id": "05",
+      "title": "python-hltv-parser",
+      "href": "https://github.com/artemk1337/python-hltv-parser",
+      "description": {
+        "ru": "Неофициальный HLTV Python API. Подходит для демонстрации парсинга, API-обёртки и аккуратной работы с внешним сервисом.",
+        "en": "Unofficial HLTV Python API. Good for demonstrating parsing, API wrapping and careful work with an external service."
+      },
+      "tags": ["Python", "Parsing", "API"]
+    },
+    {
+      "id": "06",
+      "title": "SiameseDCGAN",
+      "href": "https://github.com/artemk1337/SiameseDCGAN-with-embedding-layers-and-contrastive-loss",
+      "description": {
+        "ru": "Эксперименты с embedding layers и contrastive loss на MNIST. Хорошая иллюстрация интереса к deep learning и экспериментам с архитектурами.",
+        "en": "Experiments with embedding layers and contrastive loss on MNIST. A good illustration of interest in deep learning and model architecture experiments."
+      },
+      "tags": ["Deep Learning", "MNIST", "Contrastive loss"]
+    }
+  ]
+}

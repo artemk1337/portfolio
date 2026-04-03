@@ -1,115 +1,37 @@
 {
-  "count": 22,
-  "items": [
+  "certificates": [
     {
-      "title": "Coursera — Advanced Machine Learning with TensorFlow on Google Cloud Platform Specialization",
-      "category": "Coursera",
-      "href": "data/CERTIFICATES/COURSES/COURSERA/Advanced Machine Learning with TensorFlow on Google Cloud Platform Specialization/Coursera PMBD9B6NBKMX.pdf"
+      "title": {
+        "ru": "TensorFlow Certificate Developer (10.2020-10.2023)",
+        "en": "TensorFlow Certificate Developer (10.2020-10.2023)"
+      },
+      "issuer": {
+        "ru": "TensorFlow",
+        "en": "TensorFlow"
+      },
+      "year": "2020-2023"
     },
     {
-      "title": "Coursera — DeepLearning.AI TensorFlow Developer #1",
-      "category": "Coursera",
-      "href": "data/CERTIFICATES/COURSES/COURSERA/DeepLearning.AI TensorFlow Developer/Coursera 4WJ852DRGKEC.pdf"
+      "title": {
+        "ru": "DeepLearning.AI TensorFlow Developer",
+        "en": "DeepLearning.AI TensorFlow Developer"
+      },
+      "issuer": {
+        "ru": "DeepLearning.AI",
+        "en": "DeepLearning.AI"
+      },
+      "year": "2020-2023"
     },
     {
-      "title": "Coursera — DeepLearning.AI TensorFlow Developer #2",
-      "category": "Coursera",
-      "href": "data/CERTIFICATES/COURSES/COURSERA/DeepLearning.AI TensorFlow Developer/Coursera JUAXXDNL9TB2.pdf"
-    },
-    {
-      "title": "Coursera — DeepLearning.AI TensorFlow Developer #3",
-      "category": "Coursera",
-      "href": "data/CERTIFICATES/COURSES/COURSERA/DeepLearning.AI TensorFlow Developer/Coursera RQKWMXGCYDCG.pdf"
-    },
-    {
-      "title": "Coursera — DeepLearning.AI TensorFlow Developer #4",
-      "category": "Coursera",
-      "href": "data/CERTIFICATES/COURSES/COURSERA/DeepLearning.AI TensorFlow Developer/Coursera TA3L4CL6SDC8.pdf"
-    },
-    {
-      "title": "Coursera — DeepLearning.AI TensorFlow Developer #5",
-      "category": "Coursera",
-      "href": "data/CERTIFICATES/COURSES/COURSERA/DeepLearning.AI TensorFlow Developer/Coursera XEHPD7DKG7HN.pdf"
-    },
-    {
-      "title": "Coursera — TensorFlow 2 for Deep Learning Specialization #1",
-      "category": "Coursera",
-      "href": "data/CERTIFICATES/COURSES/COURSERA/TensorFlow 2 for Deep Learning Specialization by IMPERIAL COLLEGE LONDON/Coursera P8KEZY7XRFEF.pdf"
-    },
-    {
-      "title": "Coursera — TensorFlow 2 for Deep Learning Specialization #2",
-      "category": "Coursera",
-      "href": "data/CERTIFICATES/COURSES/COURSERA/TensorFlow 2 for Deep Learning Specialization by IMPERIAL COLLEGE LONDON/Coursera S8FMJBMQWBNL.pdf"
-    },
-    {
-      "title": "NVIDIA — Accelerating CUDA C++ Applications with Concurrent Streams",
-      "category": "NVIDIA",
-      "href": "data/CERTIFICATES/COURSES/Nvidia Certificate/Accelerating CUDA C++ Applications with Concurrent Streams/Certificate 126d62ebb6f944e0876df992acb97f9e.pdf"
-    },
-    {
-      "title": "NVIDIA — Accelerating End-to-End Data Science Workflows",
-      "category": "NVIDIA",
-      "href": "data/CERTIFICATES/COURSES/Nvidia Certificate/Accelerating End-to-End Data Science Workflows/Certificate 6fddf612e0cd4f529924e6ad8054c46d.pdf"
-    },
-    {
-      "title": "NVIDIA — Fundamentals of Accelerated Computing with CUDA C++",
-      "category": "NVIDIA",
-      "href": "data/CERTIFICATES/COURSES/Nvidia Certificate/Fundamentals of Accelerated Computing with CUDA CC++/Certificate b914e055f85445febc07f510d2cbf22b.pdf"
-    },
-    {
-      "title": "NVIDIA — Fundamentals of Accelerated Computing with CUDA Python",
-      "category": "NVIDIA",
-      "href": "data/CERTIFICATES/COURSES/Nvidia Certificate/Fundamentals of Accelerated Computing with CUDA Python/Certificate fa9bd87e6d2f41929aff806af537be0c.pdf"
-    },
-    {
-      "title": "NVIDIA — Fundamentals of Accelerated Computing with OpenACC",
-      "category": "NVIDIA",
-      "href": "data/CERTIFICATES/COURSES/Nvidia Certificate/Fundamentals of Accelerated Computing with OpenACC/Certificate 2e78e6b934604e11b20b1bae549370a6.pdf"
-    },
-    {
-      "title": "NVIDIA — Scaling Workloads Across Multiple GPUs with CUDA C++",
-      "category": "NVIDIA",
-      "href": "data/CERTIFICATES/COURSES/Nvidia Certificate/Scaling Workloads Across Multiple GPUs with CUDA C++/Certificate ae05ffd61584413499f8bdaad3eefa6a.pdf"
-    },
-    {
-      "title": "HTML — CKT certificate",
-      "category": "Other",
-      "href": "data/CERTIFICATES/COURSES/OTHER/HTML_CKT.pdf"
-    },
-    {
-      "title": "Stepik — certificate 123300",
-      "category": "Stepik",
-      "href": "data/CERTIFICATES/COURSES/STEPIK/stepik-certificate-123300-b20b8f9.pdf"
-    },
-    {
-      "title": "Stepik — certificate 54403",
-      "category": "Stepik",
-      "href": "data/CERTIFICATES/COURSES/STEPIK/stepik-certificate-54403-7642da0.pdf"
-    },
-    {
-      "title": "Cup IT 2020 — Data Science, 3rd place",
-      "category": "Hackathons",
-      "href": "data/CERTIFICATES/HACKATHONS/Cup_IT_2020_DS.pdf"
-    },
-    {
-      "title": "School 42 — adam.42",
-      "category": "Other",
-      "href": "data/CERTIFICATES/HACKATHONS/adam.42.pdf"
-    },
-    {
-      "title": "National Supercomputing Forum 2021",
-      "category": "Other",
-      "href": "data/CERTIFICATES/OTHER/NSCF-2021_Certificate.pdf"
-    },
-    {
-      "title": "Yandex Advertising — summer intensive",
-      "category": "Other",
-      "href": "data/CERTIFICATES/OTHER/Yandex_Ad_Kushch_Artem.pdf"
-    },
-    {
-      "title": "TensorFlow — Google",
-      "category": "TensorFlow",
-      "href": "data/CERTIFICATES/TERSORFLOW-GOOGLE/TENSORFLOW_zd0e81jv.pdf"
+      "title": {
+        "ru": "NVIDIA CUDA and accelerated computing",
+        "en": "NVIDIA CUDA and accelerated computing"
+      },
+      "issuer": {
+        "ru": "NVIDIA",
+        "en": "NVIDIA"
+      },
+      "year": "2020"
     }
   ]
 }
