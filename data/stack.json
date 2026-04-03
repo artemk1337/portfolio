@@ -6,15 +6,35 @@
         "ru": "Языки программирования",
         "en": "Programming languages"
       },
-      "items": ["Golang", "Python", "C", "PHP", "Rust"]
+      "items": [
+        { "name": "Golang", "tier": "core" },
+        { "name": "Python", "tier": "core" },
+        { "name": "C", "tier": "support" },
+        { "name": "PHP", "tier": "support" },
+        { "name": "Rust", "tier": "support" }
+      ]
     },
     {
       "key": "backend",
+      "featured": true,
       "title": {
         "ru": "Backend и инфраструктура",
         "en": "Backend and infrastructure"
       },
-      "items": ["gRPC", "REST", "Microservices", "Kubernetes", "Docker", "Linux", "Nginx", "GitLab CI/CD"]
+      "description": {
+        "ru": "Основной фокус: высоконагруженный backend, инфраструктура и надёжность.",
+        "en": "Primary focus: high-load backend, infrastructure, and reliability."
+      },
+      "items": [
+        { "name": "gRPC", "tier": "core" },
+        { "name": "REST", "tier": "support" },
+        { "name": "Microservices", "tier": "core" },
+        { "name": "Kubernetes", "tier": "core" },
+        { "name": "Docker", "tier": "support" },
+        { "name": "Linux", "tier": "support" },
+        { "name": "Nginx", "tier": "support" },
+        { "name": "GitLab CI/CD", "tier": "support" }
+      ]
     },
     {
       "key": "data",
@@ -22,7 +42,14 @@
         "ru": "Базы данных и очереди",
         "en": "Databases and queues"
       },
-      "items": ["PostgreSQL", "Redis", "MongoDB", "Etcd", "Kafka", "RabbitMQ"]
+      "items": [
+        { "name": "PostgreSQL", "tier": "core" },
+        { "name": "Redis", "tier": "core" },
+        { "name": "MongoDB", "tier": "support" },
+        { "name": "Etcd", "tier": "support" },
+        { "name": "Kafka", "tier": "core" },
+        { "name": "RabbitMQ", "tier": "support" }
+      ]
     },
     {
       "key": "observability",
@@ -30,7 +57,14 @@
         "ru": "Мониторинг и аналитика",
         "en": "Monitoring and analytics"
       },
-      "items": ["Grafana", "Prometheus", "Statshouse", "pprof", "OneCloud", "PlantUML"]
+      "items": [
+        { "name": "Grafana", "tier": "core" },
+        { "name": "Prometheus", "tier": "core" },
+        { "name": "Statshouse", "tier": "support" },
+        { "name": "pprof", "tier": "core" },
+        { "name": "OneCloud", "tier": "support" },
+        { "name": "PlantUML", "tier": "support" }
+      ]
     },
     {
       "key": "cv",
@@ -38,7 +72,14 @@
         "ru": "ML / Computer Vision",
         "en": "ML / Computer Vision"
       },
-      "items": ["TensorFlow", "CUDA", "Numba", "multiprocessing", "Deep Learning", "Computer Vision"]
+      "items": [
+        { "name": "TensorFlow", "tier": "core" },
+        { "name": "CUDA", "tier": "core" },
+        { "name": "Numba", "tier": "support" },
+        { "name": "multiprocessing", "tier": "support" },
+        { "name": "Deep Learning", "tier": "core" },
+        { "name": "Computer Vision", "tier": "core" }
+      ]
     }
   ]
 }

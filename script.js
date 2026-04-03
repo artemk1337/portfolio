@@ -22,6 +22,7 @@ const nodes = {
   experienceTitle: document.querySelector("#experience .section-title h2"),
   experienceTimeline: document.querySelector("#experience .timeline"),
   stackTitle: document.querySelector("#stack .section-title h2"),
+  stackSubtitle: document.querySelector("#stack .section-note"),
   stackGrid: document.querySelector("#stack .stack-grid"),
   projectsTitle: document.querySelector("#projects .section-title h2"),
   projectsGrid: document.querySelector("#projects .projects"),
@@ -61,6 +62,9 @@ const labels = {
     "languages.title": "Языки",
     "stack.eyebrow": "Стек",
     "stack.title": "Стек",
+    "stack.subtitle": "Технологии, с которыми я работаю",
+    "stack.chip.core": "Используется в продакшене",
+    "stack.chip.support": "Вспомогательный инструмент",
     "projects.eyebrow": "Проекты",
     "projects.title": "Выбранные репозитории и инженерные кейсы",
     "projects.open": "Открыть",
@@ -104,6 +108,9 @@ const labels = {
     "languages.title": "Languages",
     "stack.eyebrow": "Stack",
     "stack.title": "Stack",
+    "stack.subtitle": "Technologies I work with",
+    "stack.chip.core": "Used in production",
+    "stack.chip.support": "Supporting tool",
     "projects.eyebrow": "Projects",
     "projects.title": "Selected repositories and engineering cases",
     "projects.open": "Open",
@@ -440,21 +447,41 @@ function renderStack() {
     setText(nodes.stackTitle, labels[currentLanguage]["stack.title"]);
   }
 
+  if (nodes.stackSubtitle) {
+    setText(nodes.stackSubtitle, labels[currentLanguage]["stack.subtitle"]);
+  }
+
   if (!nodes.stackGrid) {
     return;
   }
 
-  nodes.stackGrid.innerHTML = state.stack
-    .map(
-      (group) => `
-        <article class="stack-card">
-          <h3>${localized(group.title)}</h3>
+  const items = state.stack.slice().sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
+
+  nodes.stackGrid.innerHTML = items
+    .map((group) => {
+      const title = localized(group.title);
+      const description = localized(group.description);
+      const key = group.key ? ` data-stack-key="${group.key}"` : "";
+      const featuredClass = group.featured ? " stack-card-featured" : "";
+      const chips = (group.items || [])
+        .map((item) => {
+          const value = typeof item === "string" ? item : localized(item.name || item.label || item);
+          const tier = typeof item === "string" ? "support" : item.tier || "support";
+          const titleLabel = labels[currentLanguage][`stack.chip.${tier}`] || "";
+          return `<span class="chip chip-${tier}"${titleLabel ? ` title="${titleLabel}"` : ""}>${value}</span>`;
+        })
+        .join("");
+
+      return `
+        <article class="stack-card${featuredClass}"${key}>
+          <h3>${title}</h3>
+          ${description ? `<p class="stack-card-note">${description}</p>` : ""}
           <div class="chips">
-            ${group.items.map((item) => `<span>${item}</span>`).join("")}
+            ${chips}
           </div>
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 }
 
