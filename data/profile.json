@@ -5,102 +5,43 @@
       "en": "VK · Russia · Moscow"
     },
     "title": {
-      "ru": "Artem K - Кущ Артем / Kushch Artem",
-      "en": "Artem K - Kushch Artem / Кущ Артем"
+      "ru": "Кущ Артем",
+      "en": "Kushch Artem"
     },
     "subtitle": {
-      "ru": "Senior+ Golang developer · Python · Computer Vision",
-      "en": "Senior+ Golang developer · Python · Computer Vision"
+      "ru": "Senior+ / Lead backend engineer · Golang · Python · CV / ML",
+      "en": "Senior+ / Lead backend engineer · Golang · Python · CV / ML"
     },
     "lead": {
-      "ru": "Senior+ Golang developer и backend-разработчик на Python, с опытом Computer Vision. На этой странице собраны опыт, сертификаты, GitHub-активность и проекты в формате короткого резюме.",
-      "en": "Senior+ Golang developer and backend developer in Python, with Computer Vision experience. This page highlights experience, certificates, GitHub activity and projects as a short resume."
+      "ru": "Senior+ / Lead backend engineer с фокусом на Golang, микросервисы, производительность и observability.",
+      "en": "Senior+ / Lead backend engineer focused on Golang, microservices, performance, and observability."
     }
   },
   "panel": {
     "focus": {
       "label": {
-        "ru": "Current focus",
-        "en": "Current focus"
+        "ru": "Обо мне",
+        "en": "About me"
       },
       "title": {
-        "ru": "Senior+ Go, Python и Computer Vision",
-        "en": "Senior+ Go, Python and Computer Vision"
+        "ru": "Senior+ / Lead backend engineer",
+        "en": "Senior+ / Lead backend engineer"
       },
       "text": {
-        "ru": "Senior+ Golang developer first, Python second, Computer Vision experience after that. Backend-сервисы, прикладной ML и инженерные задачи с измеримым результатом.",
-        "en": "Senior+ Golang developer first, Python second, Computer Vision experience after that. Backend services, applied ML and engineering tasks with measurable results."
-      }
-    },
-    "role": {
-      "label": {
-        "ru": "Current role",
-        "en": "Current role"
-      },
-      "values": [
-        {
-          "ru": "Senior+ Golang developer",
-          "en": "Senior+ Golang developer"
-        },
-        {
-          "ru": "Python / Computer Vision",
-          "en": "Python / Computer Vision"
-        }
-      ]
-    },
-    "workplace": {
-      "label": {
-        "ru": "Current workplace",
-        "en": "Current workplace"
-      },
-      "company": "VK",
-      "location": {
-        "ru": "Moscow, Russia",
-        "en": "Moscow, Russia"
+        "ru": "Senior+ / Lead backend engineer с 5+ годами опыта в разработке и масштабировании высоконагруженных распределённых систем. Сильная экспертиза в Golang, микросервисах, оптимизации производительности и observability. Опыт руководства командами, менторинга инженеров и повышения надёжности production-систем под высокой нагрузкой (до 10M RPS).",
+        "en": "Senior+ / Lead backend engineer with 5+ years of experience building and scaling high-load distributed systems. Strong expertise in Golang, microservices, performance optimization, and observability. Experienced in leading teams, mentoring engineers, and improving reliability of production systems under heavy load (up to 10M RPS)."
       }
     }
   },
   "stats": {
     "repos": 59,
-    "companies": 5,
-    "certificates": 22,
-    "profile": {
-      "ru": "Senior+ Go / Python / CV",
-      "en": "Senior+ Go / Python / CV"
-    }
-  },
-  "about": {
-    "title": {
-      "ru": "Короткий профиль для резюме",
-      "en": "Short profile for the resume"
-    },
-    "points": [
-      {
-        "ru": "Senior+ Golang developer и backend-разработчик на Python.",
-        "en": "Senior+ Golang developer and backend developer in Python."
-      },
-      {
-        "ru": "Computer Vision Research Engineer опыт после backend-профиля.",
-        "en": "Computer Vision Research Engineer experience after the backend profile."
-      },
-      {
-        "ru": "Опыт в VK, Pasul Ltd, X5 Digital, ISGNeuro и citis.",
-        "en": "Experience at VK, Pasul Ltd, X5 Digital, ISGNeuro and citis."
-      },
-      {
-        "ru": "GitHub-репозитории, хакатоны и сертификаты подтверждают практику, а не только интерес.",
-        "en": "GitHub repositories, hackathons and certificates show practice, not just interest."
-      }
-    ],
-    "text": {
-      "ru": "Для сайта я перенёс акцент с «портфолио» на «резюме»: тут должны быстро читаться опыт, сертификаты, GitHub-активность и проекты с конкретной инженерной ценностью.",
-      "en": "For the site I shifted the emphasis from a pure portfolio to a resume: experience, certificates, GitHub activity and projects with clear engineering value should be visible first."
-    }
+    "companies": 6,
+    "certificates": 22
   },
   "contact": {
     "text": {
-      "ru": "Ниже основные каналы связи. Страница остаётся лёгкой, но теперь читается как краткое резюме с упором на опыт, сертификаты и GitHub.",
-      "en": "Below are the main ways to reach me. The page stays lightweight, but now reads as a short resume with a focus on experience, certificates and GitHub."
+      "ru": "Если нужен контекст по опыту, сертификатам или проектам, напишите в Telegram, на email или откройте GitHub.",
+      "en": "If you need context on experience, certificates, or projects, reach out via Telegram, email, or GitHub."
     },
     "github": {
       "ru": "Профиль GitHub",

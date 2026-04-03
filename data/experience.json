@@ -5,28 +5,105 @@
       "country": "Russia",
       "period": "Aug 2024 - Present",
       "role": {
-        "ru": "Lead / Senior+ Golang",
-        "en": "Lead / Senior+ Golang"
+        "ru": "Ведущий backend-разработчик",
+        "en": "Leading Backend Developer"
       },
       "highlights": [
         {
-          "ru": "High-load backend, observability, CI/CD, code review",
-          "en": "High-load backend, observability, CI/CD, code review"
+          "ru": "High-load инфраструктура и микросервисы: 1M-10M RPS",
+          "en": "High-load infrastructure and microservices handling 1M-10M RPS"
+        },
+        {
+          "ru": "Ускорение сервисов в 2-5x, снижение потребления ресурсов на 20-30%",
+          "en": "Improved performance by 2-5x and reduced resource consumption by 20-30%"
+        },
+        {
+          "ru": "Оптимизация p95/p99 latency, CPU, memory, GC и критических участков кода",
+          "en": "Optimized p95/p99 latency, CPU, memory, GC, and critical code paths"
+        },
+        {
+          "ru": "Resilience: adaptive RPS limiting, goroutine limiting, timeout/context control",
+          "en": "Resilience: adaptive RPS limiting, goroutine limiting, timeout/context control"
+        },
+        {
+          "ru": "Переиспользуемые Go-пакеты: caching, singleflightx, preload optimizations",
+          "en": "Reusable Go packages: caching, singleflightx, preload optimizations"
+        },
+        {
+          "ru": "Генератор кода для стандартизированных метрик и улучшение observability",
+          "en": "Code generator for standardized metrics and improved observability"
+        },
+        {
+          "ru": "Улучшение monitoring, alerting и операционных процессов",
+          "en": "Enhanced monitoring, alerting, and operational processes"
+        },
+        {
+          "ru": "Лидировал команду из 4 backend-инженеров",
+          "en": "Led a team of 4 backend engineers"
+        },
+        {
+          "ru": "Провёл 100+ технических интервью",
+          "en": "Conducted 100+ technical interviews"
+        },
+        {
+          "ru": "Менторинг, high-impact code review, участие в инцидентах и постмортемах",
+          "en": "Mentoring, high-impact code reviews, incident response and postmortems"
+        },
+        {
+          "ru": "Выступал на внутренних и внешних митапах и конференциях, делясь экспертизой по Golang и high-load systems",
+          "en": "Spoke at internal and external meetups and conferences, sharing expertise on Golang and high-load systems"
+        }
+      ],
+      "links": [
+        {
+          "label": {
+            "ru": "Смотреть запись митапа",
+            "en": "Watch meetup recording"
+          },
+          "href": "https://vkvideo.ru/video-229335646_456239092"
         }
       ]
     },
     {
-      "company": "Pasul Ltd",
-      "country": "Russia",
-      "period": "Sep 2023 - Feb 2024",
+      "company": "P Ltd",
+      "country": "Cyprus",
+      "period": "Feb 2024 - Aug 2024",
       "role": {
-        "ru": "Back-end developer",
-        "en": "Back-end developer"
+        "ru": "Backend-разработчик",
+        "en": "Backend Developer"
       },
       "highlights": [
         {
-          "ru": "Golang, Java, gRPC / REST, VPN gateway",
-          "en": "Golang, Java, gRPC / REST, VPN gateway"
+          "ru": "Декомпозиция монолита на микросервисы",
+          "en": "Decomposed monolith into microservices"
+        },
+        {
+          "ru": "Архитектура распределённой платформы",
+          "en": "Designed distributed platform architecture"
+        },
+        {
+          "ru": "Миграция legacy Java-сервисов на Golang",
+          "en": "Migrated legacy Java services to Golang"
+        },
+        {
+          "ru": "API: 80% gRPC, 20% REST",
+          "en": "APIs: 80% gRPC, 20% REST"
+        },
+        {
+          "ru": "CI/CD пайплайны",
+          "en": "Built and maintained CI/CD pipelines"
+        },
+        {
+          "ru": "Coding standards и инженерные конвенции",
+          "en": "Introduced coding standards and engineering conventions"
+        },
+        {
+          "ru": "Кастомный linter для golangci-lint",
+          "en": "Developed custom linter for golangci-lint"
+        },
+        {
+          "ru": "Распределённая VPN-сеть для прямой коммуникации сервисов",
+          "en": "Designed distributed VPN network for direct service communication"
         }
       ]
     },
@@ -35,51 +112,110 @@
       "country": "Russia",
       "period": "Sep 2023 - Feb 2024",
       "role": {
-        "ru": "Middle backend developer",
-        "en": "Middle backend developer"
+        "ru": "Middle backend-разработчик",
+        "en": "Middle Backend Developer"
       },
       "highlights": [
         {
-          "ru": "Golang, PHP, Kafka, PostgreSQL, Redis",
-          "en": "Golang, PHP, Kafka, PostgreSQL, Redis"
+          "ru": "Golang микросервисы для core-платформы (Перекресток)",
+          "en": "Golang microservices for core platform (Perekrestok)"
+        },
+        {
+          "ru": "Ускорение обработки запросов в 3-5x",
+          "en": "Improved request processing performance by 3-5x"
+        },
+        {
+          "ru": "Архитектурные улучшения и design patterns",
+          "en": "Architectural improvements and design patterns"
+        },
+        {
+          "ru": "Мониторинг, профилирование (pprof), оптимизация SQL",
+          "en": "Monitoring, profiling (pprof), and SQL optimization"
         }
       ]
     },
     {
-      "company": "ISGNeuro / citis",
+      "company": "Polymatica",
+      "country": "Russia",
+      "period": "Sep 2023 - Feb 2024",
+      "role": {
+        "ru": "Backend-разработчик",
+        "en": "Backend Developer"
+      },
+      "highlights": [
+        {
+          "ru": "Go и Python микросервисы для аналитической платформы",
+          "en": "Built Go and Python microservices for analytics platform"
+        },
+        {
+          "ru": "Интеграции для enterprise клиентов",
+          "en": "Developed integrations for enterprise customers"
+        },
+        {
+          "ru": "Миграция и трансформация данных (pipelines)",
+          "en": "Implemented data migration and transformation pipelines"
+        },
+        {
+          "ru": "Отчётность: Excel, PDF, HTML",
+          "en": "Reporting tools: Excel, PDF, HTML"
+        },
+        {
+          "ru": "PostgreSQL, MongoDB, Redis, RabbitMQ",
+          "en": "PostgreSQL, MongoDB, Redis, RabbitMQ"
+        }
+      ]
+    },
+    {
+      "company": "ISGNeuro",
       "country": "Russia",
       "period": "Jul 2021 - Aug 2022",
       "role": {
-        "ru": "Software Engineer / Computer Vision Engineer",
-        "en": "Software Engineer / Computer Vision Engineer"
+        "ru": "Software Engineer",
+        "en": "Software Engineer"
       },
       "highlights": [
         {
-          "ru": "Python, Django, Flask, Qt, TensorFlow, CUDA",
-          "en": "Python, Django, Flask, Qt, TensorFlow, CUDA"
+          "ru": "Desktop-приложения и системы обработки данных (Python, Qt)",
+          "en": "Developed desktop applications and data processing systems (Python, Qt)"
+        },
+        {
+          "ru": "Аналитическая платформа и large-scale data processing",
+          "en": "Worked on analytics platform and large-scale data processing"
+        },
+        {
+          "ru": "Multiprocessing, Cython, GPU-ускорение (CUDA)",
+          "en": "Applied multiprocessing, Cython, and GPU acceleration (CUDA)"
+        },
+        {
+          "ru": "ML-модели: classification, regression, segmentation",
+          "en": "ML models: classification, regression, segmentation"
         }
       ]
     },
     {
-      "company": "GitHub",
-      "country": "Global",
-      "period": "Ongoing",
+      "company": "FGANU CITIS",
+      "country": "Russia",
+      "period": "Jun 2020 - Jul 2021",
       "role": {
-        "ru": "Open-source activity",
-        "en": "Open-source activity"
+        "ru": "Инженер Computer Vision",
+        "en": "Computer Vision Engineer"
       },
       "highlights": [
         {
-          "ru": "Open-source activity and 59 repositories",
-          "en": "Open-source activity and 59 repositories"
+          "ru": "Computer Vision и deep learning системы",
+          "en": "Developed computer vision and deep learning systems"
         },
         {
-          "ru": "Pull Shark and Arctic Code Vault Contributor",
-          "en": "Pull Shark and Arctic Code Vault Contributor"
+          "ru": "Desktop-приложения и data pipelines",
+          "en": "Built desktop applications and data pipelines"
         },
         {
-          "ru": "Практика на repo-level: парсеры, ML, C, bots",
-          "en": "Repo-level practice: parsers, ML, C, bots"
+          "ru": "Identity recognition и tracking системы",
+          "en": "Worked on identity recognition and tracking systems"
+        },
+        {
+          "ru": "Исследования: детекция deepfake",
+          "en": "Conducted research on deepfake detection"
         }
       ]
     }

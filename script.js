@@ -1,92 +1,120 @@
 const year = document.getElementById("year");
 const langButtons = document.querySelectorAll(".lang-btn");
 const translatable = document.querySelectorAll("[data-i18n]");
+const scrollTopButton = document.querySelector(".scroll-top");
 
 const nodes = {
   certificateCount: document.getElementById("certificate-count"),
-  educationCount: document.getElementById("education-count"),
+  educationSectionEyebrow: document.querySelector("#education .section-title .eyebrow"),
+  educationTitle: document.querySelector("#education .section-title h2"),
+  educationList: document.getElementById("education-list"),
+  languagesList: document.getElementById("languages-list"),
+  certificatesCount: document.getElementById("education-count"),
+  certificatesTitle: document.querySelector("#certificates .section-title h2"),
+  certificatesLabel: document.querySelector("#certificates .panel-label"),
   certificatesList: document.getElementById("certificates-list"),
   heroEyebrow: document.querySelector(".hero-copy .eyebrow"),
   heroTitle: document.querySelector(".hero-copy h1"),
   heroSubtitle: document.querySelector(".name-subtitle"),
-  heroLead: document.querySelector(".hero-copy .lead"),
   heroFocusLabel: document.querySelector(".panel-card-main .panel-label"),
   heroFocusTitle: document.querySelector(".panel-card-main h2"),
   heroFocusText: document.querySelector(".panel-card-main p:last-of-type"),
-  heroRoleLabel: document.querySelector(".panel-grid .panel-card:first-child .panel-label"),
-  heroRoleValue1: document.querySelector(".panel-grid .panel-card:first-child p:nth-of-type(2)"),
-  heroRoleValue2: document.querySelector(".panel-grid .panel-card:first-child p:nth-of-type(3)"),
-  heroWorkplaceLabel: document.querySelector(".panel-grid .panel-card:last-child .panel-label"),
-  heroWorkplaceCompany: document.querySelector(".panel-grid .panel-card:last-child p:nth-of-type(2)"),
-  heroWorkplaceLocation: document.querySelector(".panel-grid .panel-card:last-child p:nth-of-type(3)"),
-  aboutTitle: document.querySelector("#about .section-title h2"),
-  aboutList: document.querySelector("#about .resume-list"),
-  aboutText: document.querySelector("#about .content-card > p"),
   experienceTitle: document.querySelector("#experience .section-title h2"),
   experienceTimeline: document.querySelector("#experience .timeline"),
   stackTitle: document.querySelector("#stack .section-title h2"),
   stackGrid: document.querySelector("#stack .stack-grid"),
   projectsTitle: document.querySelector("#projects .section-title h2"),
   projectsGrid: document.querySelector("#projects .projects"),
-  educationTitle: document.querySelector("#education .section-title h2"),
-  educationLabel: document.querySelector("#education .panel-label"),
-  educationText: document.querySelector("#education .education-text"),
   contactTitle: document.querySelector("#contact h2"),
   contactEyebrow: document.querySelector("#contact .eyebrow"),
-  contactText: document.querySelector("#contact .contact-card > p"),
-  contactGithub: document.querySelector("#contact .hero-actions .button"),
 };
 
 const labels = {
   ru: {
-    "nav.about": "Обо мне",
     "nav.experience": "Опыт",
+    "nav.languages": "Языки",
     "nav.projects": "Проекты",
     "nav.stack": "Стек",
-    "nav.education": "Сертификаты",
+    "nav.education": "Образование",
+    "nav.certificates": "Сертификаты",
     "nav.contact": "Контакты",
+    "stats.repos.label": "Репозитории",
+    "stats.companies.label": "Компании",
+    "stats.certificates.label": "Сертификаты",
+    "stats.role.label": "Роль",
+    "stats.role.value": "Senior+ / Lead backend engineer",
     "hero.github": "GitHub",
     "hero.gitlab": "GitLab",
     "hero.projects": "Смотреть проекты",
+    "hero.subtitle": "Senior+ / Lead backend engineer · Golang · Python · CV / ML",
+    "hero.lead":
+      "Senior+ / Lead backend engineer с 5+ годами опыта в разработке и масштабировании высоконагруженных распределённых систем. Сильная экспертиза в Golang, микросервисах, оптимизации производительности и observability. Опыт руководства командами, менторинга инженеров и повышения надёжности production-систем под высокой нагрузкой (до 10M RPS).",
+    "hero.panel.focus.label": "Обо мне",
+    "hero.panel.focus.title": "Senior+ / Lead backend engineer",
+    "hero.panel.focus.text":
+      "Golang, микросервисы, производительность, observability и надёжность. Инженерные задачи с измеримым результатом и ответственностью за продакшен.",
     "experience.eyebrow": "Опыт",
-    "experience.title": "Ключевые роли, страны и годы",
+    "experience.title": "Опыт работы, задачи и результат",
+    "education.eyebrow": "Образование",
+    "education.title": "Образование",
+    "languages.eyebrow": "Языки",
+    "languages.title": "Языки",
     "stack.eyebrow": "Стек",
-    "stack.title": "Стек, сгруппированный по слоям",
+    "stack.title": "Стек",
     "projects.eyebrow": "Проекты",
     "projects.title": "Выбранные репозитории и инженерные кейсы",
     "projects.open": "Открыть",
     "edu.eyebrow": "Сертификаты",
     "edu.title": "Сертификаты и курсы",
     "edu.summary.label": "Всего",
-    "edu.summary.text": "Курсы, сертификации и хакатоны собраны в отдельную секцию.",
     "contact.eyebrow": "Контакты",
     "contact.title": "Связаться со мной",
+    "contact.text": "Если нужен контекст по опыту, сертификатам или проектам, напишите в Telegram, на email или откройте GitHub.",
     "contact.github": "Профиль GitHub",
+    "scrollTop": "Наверх",
   },
   en: {
-    "nav.about": "About",
     "nav.experience": "Experience",
+    "nav.languages": "Languages",
     "nav.projects": "Projects",
     "nav.stack": "Stack",
-    "nav.education": "Certificates",
+    "nav.education": "Education",
+    "nav.certificates": "Certificates",
     "nav.contact": "Contact",
+    "stats.repos.label": "Repos",
+    "stats.companies.label": "Companies",
+    "stats.certificates.label": "Certificates",
+    "stats.role.label": "Role",
+    "stats.role.value": "Senior+ / Lead backend engineer",
     "hero.github": "GitHub",
     "hero.gitlab": "GitLab",
     "hero.projects": "View projects",
+    "hero.subtitle": "Senior+ / Lead backend engineer · Golang · Python · CV / ML",
+    "hero.lead":
+      "Senior+ / Lead backend engineer with 5+ years of experience building and scaling high-load distributed systems. Strong expertise in Golang, microservices, performance optimization, and observability. Experienced in leading teams, mentoring engineers, and improving reliability of production systems under heavy load (up to 10M RPS).",
+    "hero.panel.focus.label": "About me",
+    "hero.panel.focus.title": "Senior+ / Lead backend engineer",
+    "hero.panel.focus.text":
+      "Golang, microservices, performance, observability, and reliability. Engineering work with measurable results and production ownership.",
     "experience.eyebrow": "Experience",
-    "experience.title": "Key roles, countries and years",
+    "experience.title": "Work experience, tasks and results",
+    "education.eyebrow": "Education",
+    "education.title": "Education",
+    "languages.eyebrow": "Languages",
+    "languages.title": "Languages",
     "stack.eyebrow": "Stack",
-    "stack.title": "Stack grouped by layers",
+    "stack.title": "Stack",
     "projects.eyebrow": "Projects",
     "projects.title": "Selected repositories and engineering cases",
     "projects.open": "Open",
     "edu.eyebrow": "Certificates",
     "edu.title": "Certificates and courses",
     "edu.summary.label": "Total",
-    "edu.summary.text": "Courses, certifications and hackathons are grouped into a dedicated section.",
     "contact.eyebrow": "Contact",
     "contact.title": "Get in touch",
+    "contact.text": "If you need context on experience, certificates, or projects, reach out via Telegram, email, or GitHub.",
     "contact.github": "GitHub profile",
+    "scrollTop": "Back to top",
   },
 };
 
@@ -94,6 +122,8 @@ let currentLanguage = window.localStorage.getItem("portfolio-lang") || "ru";
 const state = {
   profile: null,
   experience: [],
+  education: [],
+  languages: [],
   stack: [],
   projects: [],
   certificates: [],
@@ -117,6 +147,25 @@ function setText(node, value) {
   }
 }
 
+function formatRussianCount(value, one, few, many) {
+  const lastTwo = value % 100;
+  const lastOne = value % 10;
+
+  if (lastTwo >= 11 && lastTwo <= 14) {
+    return `${value} ${many}`;
+  }
+
+  if (lastOne === 1) {
+    return `${value} ${one}`;
+  }
+
+  if (lastOne >= 2 && lastOne <= 4) {
+    return `${value} ${few}`;
+  }
+
+  return `${value} ${many}`;
+}
+
 async function loadJson(path) {
   const response = await fetch(path);
   if (!response.ok) {
@@ -126,10 +175,24 @@ async function loadJson(path) {
   return response.json();
 }
 
+async function loadJsonOptional(path) {
+  const response = await fetch(path);
+  if (response.status === 404) {
+    return null;
+  }
+  if (!response.ok) {
+    throw new Error(`Failed to load ${path}: ${response.status}`);
+  }
+
+  return response.json();
+}
+
 async function loadData() {
-  const [profile, experience, stack, projects, certificates] = await Promise.all([
+  const [profile, experience, education, languages, stack, projects, certificates] = await Promise.all([
     loadJson("data/profile.json"),
     loadJson("data/experience.json"),
+    loadJsonOptional("data/education.json"),
+    loadJsonOptional("data/languages.json"),
     loadJson("data/stack.json"),
     loadJson("data/projects.json"),
     loadJson("data/certificates.json"),
@@ -137,6 +200,8 @@ async function loadData() {
 
   state.profile = profile;
   state.experience = Array.isArray(experience.items) ? experience.items : [];
+  state.education = education && Array.isArray(education.items) ? education.items : [];
+  state.languages = languages && Array.isArray(languages.items) ? languages.items : [];
   state.stack = Array.isArray(stack.groups) ? stack.groups : [];
   state.projects = Array.isArray(projects.items) ? projects.items : [];
   state.certificates = Array.isArray(certificates.certificates)
@@ -160,6 +225,11 @@ function renderTranslations() {
     button.classList.toggle("is-active", button.dataset.lang === currentLanguage);
   });
 
+  if (scrollTopButton) {
+    scrollTopButton.setAttribute("aria-label", labels[currentLanguage].scrollTop);
+    scrollTopButton.title = labels[currentLanguage].scrollTop;
+  }
+
   setText(year, String(new Date().getFullYear()));
   document.documentElement.lang = currentLanguage;
 }
@@ -173,38 +243,124 @@ function renderHero() {
   setText(nodes.heroEyebrow, localized(profile.hero.eyebrow));
   setText(nodes.heroTitle, localized(profile.hero.title));
   setText(nodes.heroSubtitle, localized(profile.hero.subtitle));
-  setText(nodes.heroLead, localized(profile.hero.lead));
   setText(nodes.heroFocusLabel, localized(profile.panel.focus.label));
   setText(nodes.heroFocusTitle, localized(profile.panel.focus.title));
   setText(nodes.heroFocusText, localized(profile.panel.focus.text));
-  setText(nodes.heroRoleLabel, localized(profile.panel.role.label));
-  setText(nodes.heroRoleValue1, localized(profile.panel.role.values[0]));
-  setText(nodes.heroRoleValue2, localized(profile.panel.role.values[1]));
-  setText(nodes.heroWorkplaceLabel, localized(profile.panel.workplace.label));
-  setText(nodes.heroWorkplaceCompany, profile.panel.workplace.company);
-  setText(nodes.heroWorkplaceLocation, localized(profile.panel.workplace.location));
-
-  setText(nodes.contactGithub, labels[currentLanguage]["contact.github"]);
 
   if (nodes.certificateCount) {
     nodes.certificateCount.textContent = String(state.certificates.length);
   }
 }
 
-function renderAbout() {
-  const profile = state.profile;
-  if (!profile) {
-    return;
+function renderEducation() {
+  if (nodes.educationSectionEyebrow) {
+    setText(nodes.educationSectionEyebrow, labels[currentLanguage]["education.eyebrow"]);
   }
 
-  setText(nodes.aboutTitle, localized(profile.about.title));
-  setText(nodes.aboutText, localized(profile.about.text));
+  if (nodes.educationTitle) {
+    setText(nodes.educationTitle, labels[currentLanguage]["education.title"]);
+  }
 
-  if (nodes.aboutList) {
-    nodes.aboutList.innerHTML = profile.about.points
-      .map((point) => `<li>${localized(point)}</li>`)
+  if (nodes.educationList) {
+    const fallbackEducation = [
+      {
+        institution: { ru: "MISIS", en: "MISIS" },
+        degree: { ru: "MSc in Data Science", en: "MSc in Data Science" },
+        year: "2024",
+        description: {
+          ru: "Фокус на machine learning, анализе данных и обработке больших данных.",
+          en: "Focused on machine learning, data analysis, and large-scale data processing.",
+        },
+      },
+      {
+        institution: { ru: "MISIS", en: "MISIS" },
+        degree: { ru: "BSc in Applied Mathematics", en: "BSc in Applied Mathematics" },
+        year: "2022",
+        description: {
+          ru: "Сильная база: математика, теория вероятностей и статистика.",
+          en: "Strong foundation in mathematics, probability theory, and statistics.",
+        },
+      },
+    ];
+
+    const items = state.education.length ? state.education : fallbackEducation;
+
+    nodes.educationList.innerHTML = items
+      .map((item) => {
+        const institution = localized(item.institution || item.school);
+        const degree = localized(item.degree);
+        const year = item.year ? String(item.year) : "";
+        const title = [institution, degree].filter(Boolean).join(" — ");
+        const description = localized(item.description || item.text);
+
+        return `
+          <div class="education-item">
+            <h3>${title}</h3>
+            ${year ? `<p class="experience-period">${year}</p>` : ""}
+            ${description ? `<p class="education-text">${description}</p>` : ""}
+          </div>
+        `;
+      })
       .join("");
   }
+
+  if (nodes.languagesList) {
+    const fallbackLanguages = [
+      { name: { ru: "Russian", en: "Russian" }, level: { ru: "Native", en: "Native" } },
+      { name: { ru: "English", en: "English" }, level: { ru: "Upper-Intermediate (B2)", en: "Upper-Intermediate (B2)" } },
+    ];
+
+    const items = state.languages.length ? state.languages : fallbackLanguages;
+
+    nodes.languagesList.innerHTML = items
+      .map((item) => `<li>${localized(item.name)} — ${localized(item.level)}</li>`)
+      .join("");
+  }
+}
+
+function countryLabel(country) {
+  if (country === "Cyprus") {
+    return { flag: "🇨🇾", ru: "Кипр", en: "Cyprus" };
+  }
+
+  if (country === "Russia") {
+    return { flag: "🇷🇺", ru: "РФ", en: "Russia" };
+  }
+
+  return { flag: "🌍", ru: country, en: country };
+}
+
+function normalizeCompany(company) {
+  return company;
+}
+
+function formatPeriod(period) {
+  if (typeof period !== "string" || period.trim() === "") {
+    return "";
+  }
+
+  if (currentLanguage !== "ru") {
+    return period;
+  }
+
+  const monthMap = {
+    Jan: "янв",
+    Feb: "фев",
+    Mar: "мар",
+    Apr: "апр",
+    May: "май",
+    Jun: "июн",
+    Jul: "июл",
+    Aug: "авг",
+    Sep: "сен",
+    Oct: "окт",
+    Nov: "ноя",
+    Dec: "дек",
+  };
+
+  return period
+    .replace(/\bPresent\b/g, "н.в.")
+    .replace(/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b/g, (m) => monthMap[m] || m);
 }
 
 function renderExperience() {
@@ -217,22 +373,62 @@ function renderExperience() {
   }
 
   nodes.experienceTimeline.innerHTML = state.experience
+    .filter((item) => item && item.country !== "Global" && item.company !== "GitHub")
     .map((item) => {
-      const title = item.company;
-      const period = localized(item.period);
+      const country = countryLabel(item.country);
+      const company = normalizeCompany(item.company);
+      const header = `${country.flag} ${currentLanguage === "ru" ? country.ru : country.en} - ${company}`;
+
+      const period = formatPeriod(localized(item.period));
+      const periodBlock = period ? `<p class="experience-period">${period}</p>` : "";
       const role = localized(item.role);
-      const highlights = (item.highlights || [])
-        .map((highlight) => `<li>${localized(highlight)}</li>`)
-        .join("");
+      const highlights = (item.highlights || []).slice();
+      const links = (item.links || []).slice();
+
+      const points = [role, ...highlights]
+        .map((h) => {
+          if (typeof h === "string") {
+            return localized(h).trim();
+          }
+
+          if (h && typeof h === "object") {
+            const text = localized(h.text || h.label || h);
+            if (h.href) {
+              return `<a href="${h.href}" target="_blank" rel="noreferrer">${text}</a>`;
+            }
+            return text;
+          }
+
+          return "";
+        })
+        .filter(Boolean);
+
+      const list = points.map((text) => `<li>${text}</li>`).join("");
+      const linksMarkup = links.length
+        ? `
+          <div class="experience-links">
+            ${links
+              .map((link) => {
+                const text = localized(link.label || link.text || link);
+                const href = link.href;
+                if (!href || !text) {
+                  return "";
+                }
+
+                return `<a class="experience-link" href="${href}" target="_blank" rel="noreferrer">${text}</a>`;
+              })
+              .filter(Boolean)
+              .join("")}
+          </div>
+        `
+        : "";
 
       return `
-        <div>
-          <h3>${title}</h3>
-          <ul>
-            <li>${item.country}, ${period}</li>
-            <li>${role}</li>
-            ${highlights}
-          </ul>
+        <div class="experience-item">
+          <h3>${header}</h3>
+          ${periodBlock}
+          <ul>${list}</ul>
+          ${linksMarkup}
         </div>
       `;
     })
@@ -320,19 +516,19 @@ function renderCertificates() {
     })
     .join("");
 
-  if (nodes.educationCount) {
-    nodes.educationCount.textContent =
+  if (nodes.certificatesCount) {
+    nodes.certificatesCount.textContent =
       currentLanguage === "en"
         ? `${state.certificates.length} certificates`
-        : `${state.certificates.length} сертификатов`;
+        : formatRussianCount(state.certificates.length, "сертификат", "сертификата", "сертификатов");
   }
 
-  if (nodes.educationLabel) {
-    setText(nodes.educationLabel, labels[currentLanguage]["edu.summary.label"]);
+  if (nodes.certificatesTitle) {
+    setText(nodes.certificatesTitle, labels[currentLanguage]["edu.title"]);
   }
 
-  if (nodes.educationText) {
-    setText(nodes.educationText, labels[currentLanguage]["edu.summary.text"]);
+  if (nodes.certificatesLabel) {
+    setText(nodes.certificatesLabel, labels[currentLanguage]["edu.summary.label"]);
   }
 }
 
@@ -344,17 +540,21 @@ function renderContact() {
   if (nodes.contactTitle) {
     setText(nodes.contactTitle, labels[currentLanguage]["contact.title"]);
   }
+}
 
-  if (nodes.contactText && state.profile) {
-    setText(nodes.contactText, localized(state.profile.contact.text));
+function updateScrollTopButton() {
+  if (!scrollTopButton) {
+    return;
   }
+
+  scrollTopButton.classList.toggle("is-visible", window.scrollY > 320);
 }
 
 function renderAll() {
   renderTranslations();
   renderHero();
-  renderAbout();
   renderExperience();
+  renderEducation();
   renderStack();
   renderProjects();
   renderCertificates();
@@ -367,6 +567,8 @@ async function bootstrap() {
   } catch {
     state.profile = null;
     state.experience = [];
+    state.education = [];
+    state.languages = [];
     state.stack = [];
     state.projects = [];
     state.certificates = [];
@@ -383,6 +585,15 @@ langButtons.forEach((button) => {
     renderAll();
   });
 });
+
+if (scrollTopButton) {
+  scrollTopButton.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+}
 
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver(
@@ -407,5 +618,8 @@ if ("IntersectionObserver" in window) {
     element.classList.add("is-visible");
   });
 }
+
+window.addEventListener("scroll", updateScrollTopButton, { passive: true });
+updateScrollTopButton();
 
 bootstrap();
