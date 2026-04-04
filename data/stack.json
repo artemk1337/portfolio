@@ -69,18 +69,32 @@
       ]
     },
     {
-      "key": "cv",
+      "key": "data-science",
       "title": {
-        "ru": "ML / Computer Vision",
-        "en": "ML / Computer Vision"
+        "ru": "Data Science",
+        "en": "Data Science"
+      },
+      "items": [
+        { "name": "Pandas", "tier": "core" },
+        { "name": "Numpy", "tier": "core" },
+        { "name": "SciPy", "tier": "support" },
+        { "name": "CatBoost", "tier": "core" },
+        { "name": "LightGBM", "tier": "core" },
+        { "name": "XGBoost", "tier": "core" },
+        { "name": "Matplotlib", "tier": "support" }
+      ]
+    },
+    {
+      "key": "computer-vision",
+      "title": {
+        "ru": "Computer Vision",
+        "en": "Computer Vision"
       },
       "items": [
         { "name": "TensorFlow", "tier": "core" },
-        { "name": "CUDA", "tier": "core" },
-        { "name": "Numba", "tier": "support" },
-        { "name": "multiprocessing", "tier": "support" },
-        { "name": "Deep Learning", "tier": "core" },
-        { "name": "Computer Vision", "tier": "core" }
+        { "name": "PyTorch", "tier": "core" },
+        { "name": "CNN", "tier": "support" },
+        { "name": "DCGAN", "tier": "support" }
       ]
     }
   ]
