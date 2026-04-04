@@ -9,12 +9,12 @@
       "en": "Kushch Artem"
     },
     "subtitle": {
-      "ru": "Senior+ / Lead backend engineer · Golang · Python · CV / ML",
-      "en": "Senior+ / Lead backend engineer · Golang · Python · CV / ML"
+      "ru": "Бэкенд · Golang · Python · Computer Vision",
+      "en": "Backend · Golang · Python · Computer Vision"
     },
     "lead": {
-      "ru": "Senior+ / Lead backend engineer с фокусом на Golang, микросервисы, производительность и observability.",
-      "en": "Senior+ / Lead backend engineer focused on Golang, microservices, performance, and observability."
+      "ru": "Senior backend engineer с 5+ годами опыта в высоконагруженных системах, Golang, микросервисах, производительности и наблюдаемости.",
+      "en": "Senior backend engineer with 5+ years in high-load systems, Golang, microservices, performance, and observability."
     }
   },
   "panel": {
@@ -24,12 +24,12 @@
         "en": "About me"
       },
       "title": {
-        "ru": "Senior+ / Lead backend engineer",
-        "en": "Senior+ / Lead backend engineer"
+        "ru": "Senior / Lead Backend Engineer",
+        "en": "Senior / Lead Backend Engineer"
       },
       "text": {
-        "ru": "Senior+ / Lead backend engineer с 5+ годами опыта в разработке и масштабировании высоконагруженных распределённых систем. Сильная экспертиза в Golang, микросервисах, оптимизации производительности и observability. Опыт руководства командами, менторинга инженеров и повышения надёжности production-систем под высокой нагрузкой (до 10M RPS).",
-        "en": "Senior+ / Lead backend engineer with 5+ years of experience building and scaling high-load distributed systems. Strong expertise in Golang, microservices, performance optimization, and observability. Experienced in leading teams, mentoring engineers, and improving reliability of production systems under heavy load (up to 10M RPS)."
+        "ru": "Senior backend engineer с опытом в высоконагруженных системах, Golang и надёжности.",
+        "en": "Senior backend engineer with experience in high-load systems, Golang, and reliability."
       }
     }
   },
