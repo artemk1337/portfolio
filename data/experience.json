@@ -26,8 +26,8 @@
           "en": "Resilience: adaptive RPS limiting, goroutine limiting, timeout/context control"
         },
         {
-          "ru": "Переиспользуемые Go-пакеты: caching, singleflightx, preload optimizations",
-          "en": "Reusable Go packages: caching, singleflightx, preload optimizations"
+          "ru": "Переиспользуемые Go-пакеты: caching, batching, singleflightx, preload optimizations",
+          "en": "Reusable Go packages: caching, batching, singleflightx, preload optimizations"
         },
         {
           "ru": "Генератор кода для стандартизированных метрик и улучшение наблюдаемости",
