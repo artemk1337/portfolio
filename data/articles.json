@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "id": "01",
+      "kind": "article",
+      "title": "SiameseDCGAN with embedding layers and contrastive loss",
+      "href": "https://medium.com/bubblegan/siamesedcgan-with-embedding-layers-and-contrastive-loss-9e3f6c1f906e",
+      "description": {
+        "ru": "Статья про siamese DCGAN на Keras: как one-shot learning и embedding layers помогают работать с малым объёмом данных, а contrastive loss применяется для классификации и генерации изображений.",
+        "en": "An article about a siamese DCGAN in Keras: how one-shot learning and embedding layers help with limited data, and how contrastive loss is used for image classification and generation."
+      },
+      "tags": ["Medium", "Deep Learning", "Contrastive loss"]
+    },
+    {
+      "id": "02",
+      "kind": "talk",
+      "title": "OneTwoTrip meetup",
+      "href": "https://vkvideo.ru/video-229335646_456239092",
+      "description": {
+        "ru": "Короткий разбор про проектирование микросервисов на Go: типичные сложности и практики, которые помогают держать баланс между скоростью и простотой.",
+        "en": "A short talk about designing Go microservices: typical pitfalls and practices that help balance speed and simplicity."
+      },
+      "tags": ["VK Video", "Meetup", "Speaking"]
+    }
+  ]
+}

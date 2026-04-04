@@ -27,6 +27,9 @@ const nodes = {
   stackGrid: document.querySelector("#stack .stack-grid"),
   projectsTitle: document.querySelector("#projects .section-title h2"),
   projectsGrid: document.querySelector("#projects .projects"),
+  articlesTitle: document.querySelector("#articles .section-title h2"),
+  articlesSubtitle: document.querySelector("#articles .section-note"),
+  articlesGrid: document.querySelector("#articles .articles-grid"),
   contactTitle: document.querySelector("#contact h2"),
   contactEyebrow: document.querySelector("#contact .eyebrow"),
 };
@@ -36,6 +39,7 @@ const labels = {
     "nav.experience": "Опыт",
     "nav.languages": "Языки",
     "nav.projects": "Проекты",
+    "nav.articles": "Статьи и выступления",
     "nav.stack": "Стек",
     "nav.education": "Образование",
     "nav.certificates": "Сертификаты",
@@ -84,6 +88,16 @@ const labels = {
     "projects.title": "Выбранные репозитории и инженерные кейсы",
     "projects.subtitle": "Репозитории, где видны подход к данным, backend и инженерной реализации",
     "projects.open": "Открыть",
+    "articles.eyebrow": "Статьи и выступления",
+    "articles.title": "Публикации и выступления",
+    "articles.subtitle": "Материалы, где есть прикладной ML и опыт выступлений на митапах",
+    "articles.type.article": "Статья",
+    "articles.type.talk": "Выступление",
+    "articles.item1.text":
+      "Статья про siamese DCGAN на Keras: как one-shot learning и embedding layers помогают работать с малым объёмом данных, а contrastive loss применяется для классификации и генерации изображений.",
+    "articles.item2.text":
+      "Короткий разбор про проектирование микросервисов на Go: типичные сложности и практики, которые помогают держать баланс между скоростью и простотой.",
+    "articles.open": "Открыть",
     "edu.eyebrow": "Сертификаты",
     "edu.title": "Сертификаты и курсы",
     "edu.subtitle": "Подтверждённые курсы и сертификаты по основным направлениям",
@@ -98,6 +112,7 @@ const labels = {
     "nav.experience": "Experience",
     "nav.languages": "Languages",
     "nav.projects": "Projects",
+    "nav.articles": "Articles & talks",
     "nav.stack": "Stack",
     "nav.education": "Education",
     "nav.certificates": "Certificates",
@@ -146,6 +161,16 @@ const labels = {
     "projects.title": "Selected repositories and engineering cases",
     "projects.subtitle": "Repositories that show data work, backend depth, and engineering execution",
     "projects.open": "Open",
+    "articles.eyebrow": "Articles & talks",
+    "articles.title": "Publications and talks",
+    "articles.subtitle": "Materials that show applied ML work and meetup speaking experience",
+    "articles.type.article": "Article",
+    "articles.type.talk": "Talk",
+    "articles.item1.text":
+      "An article about a siamese DCGAN in Keras: how one-shot learning and embedding layers help with limited data, and how contrastive loss is used for image classification and generation.",
+    "articles.item2.text":
+      "A short talk about designing Go microservices: typical pitfalls and practices that help balance speed and simplicity.",
+    "articles.open": "Open",
     "edu.eyebrow": "Certificates",
     "edu.title": "Certificates and courses",
     "edu.subtitle": "Verified courses and certificates across core areas",
@@ -167,6 +192,7 @@ const state = {
   languages: [],
   stack: [],
   projects: [],
+  articles: [],
   certificates: [],
 };
 
@@ -229,13 +255,14 @@ async function loadJsonOptional(path) {
 }
 
 async function loadData() {
-  const [profile, experience, education, languages, stack, projects, certificates] = await Promise.all([
+  const [profile, experience, education, languages, stack, projects, articles, certificates] = await Promise.all([
     loadJson("data/profile.json"),
     loadJson("data/experience.json"),
     loadJsonOptional("data/education.json"),
     loadJsonOptional("data/languages.json"),
     loadJson("data/stack.json"),
     loadJson("data/projects.json"),
+    loadJsonOptional("data/articles.json"),
     loadJson("data/certificates.json"),
   ]);
 
@@ -245,6 +272,7 @@ async function loadData() {
   state.languages = languages && Array.isArray(languages.items) ? languages.items : [];
   state.stack = Array.isArray(stack.groups) ? stack.groups : [];
   state.projects = Array.isArray(projects.items) ? projects.items : [];
+  state.articles = articles && Array.isArray(articles.items) ? articles.items : [];
   state.certificates = Array.isArray(certificates.certificates)
     ? certificates.certificates
     : Array.isArray(certificates.items)
@@ -583,6 +611,44 @@ function renderProjects() {
   observeReveals(nodes.projectsGrid);
 }
 
+function renderArticles() {
+  if (nodes.articlesTitle) {
+    setText(nodes.articlesTitle, labels[currentLanguage]["articles.title"]);
+  }
+
+  if (nodes.articlesSubtitle) {
+    setText(nodes.articlesSubtitle, labels[currentLanguage]["articles.subtitle"]);
+  }
+
+  if (!nodes.articlesGrid || !state.articles.length) {
+    return;
+  }
+
+  nodes.articlesGrid.innerHTML = state.articles
+    .map((item, index) => {
+      const tags = Array.isArray(item.tags) ? item.tags : [];
+      const kind = item.kind === "talk" ? "articles.type.talk" : "articles.type.article";
+
+      return `
+        <article class="article-card reveal">
+          <div class="project-topline">
+            <p class="project-index">${item.id || String(index + 1).padStart(2, "0")}</p>
+            <span class="project-badge">${labels[currentLanguage][kind]}</span>
+          </div>
+          <h3>${item.title}</h3>
+          <p>${localized(item.description)}</p>
+          <div class="project-tags">
+            ${tags.map((tag) => `<span>${tag}</span>`).join("")}
+          </div>
+          <a class="project-link" href="${item.href}" target="_blank" rel="noreferrer">${labels[currentLanguage]["articles.open"]}</a>
+        </article>
+      `;
+    })
+    .join("");
+
+  observeReveals(nodes.articlesGrid);
+}
+
 function renderCertificates() {
   if (!nodes.certificatesList) {
     return;
@@ -666,6 +732,7 @@ function renderAll() {
   renderEducation();
   renderStack();
   renderProjects();
+  renderArticles();
   renderCertificates();
   renderContact();
 }
@@ -680,6 +747,7 @@ async function bootstrap() {
     state.languages = [];
     state.stack = [];
     state.projects = [];
+    state.articles = [];
     state.certificates = [];
   }
 
