@@ -438,15 +438,15 @@ function renderExperience() {
     .map((item, index) => {
       const country = countryLabel(item.country);
       const company = normalizeCompany(item.company);
-      const header = `${country.flag} ${currentLanguage === "ru" ? country.ru : country.en} - ${company}`;
+      const countryName = currentLanguage === "ru" ? country.ru : country.en;
+      const header = `${company}, ${countryName} — ${localized(item.role)}`;
 
       const period = formatPeriod(localized(item.period));
       const periodBlock = period ? `<p class="experience-period">${period}</p>` : "";
-      const role = localized(item.role);
       const highlights = (item.highlights || []).slice();
       const links = (item.links || []).slice();
 
-      const points = [role, ...highlights]
+      const points = highlights
         .map((h) => {
           if (typeof h === "string") {
             return localized(h).trim();
