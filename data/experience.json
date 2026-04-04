@@ -22,7 +22,7 @@
           "en": "Optimized p95/p99 latency, CPU, memory, GC, and critical code paths"
         },
         {
-          "ru": "Resilience: adaptive RPS limiting, goroutine limiting, timeout/context control",
+          "ru": "Стабильность: adaptive RPS limiting, goroutine limiting, timeout/context control",
           "en": "Resilience: adaptive RPS limiting, goroutine limiting, timeout/context control"
         },
         {
@@ -30,7 +30,7 @@
           "en": "Reusable Go packages: caching, singleflightx, preload optimizations"
         },
         {
-          "ru": "Генератор кода для стандартизированных метрик и улучшение observability",
+          "ru": "Генератор кода для стандартизированных метрик и улучшение наблюдаемости",
           "en": "Code generator for standardized metrics and improved observability"
         },
         {
