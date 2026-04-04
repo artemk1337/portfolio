@@ -7,10 +7,12 @@ const nodes = {
   certificateCount: document.getElementById("certificate-count"),
   educationSectionEyebrow: document.querySelector("#education .section-title .eyebrow"),
   educationTitle: document.querySelector("#education .section-title h2"),
+  educationSubtitle: document.querySelector("#education .section-note"),
   educationList: document.getElementById("education-list"),
   languagesList: document.getElementById("languages-list"),
   certificatesCount: document.getElementById("education-count"),
   certificatesTitle: document.querySelector("#certificates .section-title h2"),
+  certificatesSubtitle: document.querySelector("#certificates .section-note"),
   certificatesLabel: document.querySelector("#certificates .panel-label"),
   certificatesList: document.getElementById("certificates-list"),
   heroEyebrow: document.querySelector(".hero-copy .eyebrow"),
@@ -55,11 +57,14 @@ const labels = {
     "hero.panel.focus.text":
       "Golang, микросервисы, производительность, observability и надёжность. Инженерные задачи с измеримым результатом и ответственностью за продакшен.",
     "experience.eyebrow": "Опыт",
-    "experience.title": "Опыт работы, задачи и результат",
+    "experience.title": "Опыт и ключевые результаты",
+    "experience.subtitle": "Роли, проекты и вклад в продукт",
     "education.eyebrow": "Образование",
     "education.title": "Образование",
+    "education.subtitle": "Математика и data science как база для backend и ML",
     "languages.eyebrow": "Языки",
     "languages.title": "Языки",
+    "languages.subtitle": "Русский свободно, английский для работы и общения",
     "stack.eyebrow": "Стек",
     "stack.title": "Стек",
     "stack.subtitle": "Технологии, с которыми я работаю",
@@ -67,9 +72,11 @@ const labels = {
     "stack.chip.support": "Вспомогательный инструмент",
     "projects.eyebrow": "Проекты",
     "projects.title": "Выбранные репозитории и инженерные кейсы",
+    "projects.subtitle": "Репозитории, где видны подход к данным, backend и инженерной реализации",
     "projects.open": "Открыть",
     "edu.eyebrow": "Сертификаты",
     "edu.title": "Сертификаты и курсы",
+    "edu.subtitle": "Подтверждённые курсы и сертификаты по основным направлениям",
     "edu.summary.label": "Всего",
     "contact.eyebrow": "Контакты",
     "contact.title": "Связаться со мной",
@@ -101,11 +108,14 @@ const labels = {
     "hero.panel.focus.text":
       "Golang, microservices, performance, observability, and reliability. Engineering work with measurable results and production ownership.",
     "experience.eyebrow": "Experience",
-    "experience.title": "Work experience, tasks and results",
+    "experience.title": "Experience and key results",
+    "experience.subtitle": "Roles, projects, and product impact",
     "education.eyebrow": "Education",
     "education.title": "Education",
+    "education.subtitle": "Mathematics and data science as a base for backend and ML",
     "languages.eyebrow": "Languages",
     "languages.title": "Languages",
+    "languages.subtitle": "Russian is fluent, English for work and communication",
     "stack.eyebrow": "Stack",
     "stack.title": "Stack",
     "stack.subtitle": "Technologies I work with",
@@ -113,9 +123,11 @@ const labels = {
     "stack.chip.support": "Supporting tool",
     "projects.eyebrow": "Projects",
     "projects.title": "Selected repositories and engineering cases",
+    "projects.subtitle": "Repositories that show data work, backend depth, and engineering execution",
     "projects.open": "Open",
     "edu.eyebrow": "Certificates",
     "edu.title": "Certificates and courses",
+    "edu.subtitle": "Verified courses and certificates across core areas",
     "edu.summary.label": "Total",
     "contact.eyebrow": "Contact",
     "contact.title": "Get in touch",
@@ -268,6 +280,10 @@ function renderEducation() {
     setText(nodes.educationTitle, labels[currentLanguage]["education.title"]);
   }
 
+  if (nodes.educationSubtitle) {
+    setText(nodes.educationSubtitle, labels[currentLanguage]["education.subtitle"]);
+  }
+
   if (nodes.educationList) {
     const fallbackEducation = [
       {
@@ -293,17 +309,20 @@ function renderEducation() {
     const items = state.education.length ? state.education : fallbackEducation;
 
     nodes.educationList.innerHTML = items
-      .map((item) => {
+      .map((item, index) => {
         const institution = localized(item.institution || item.school);
-        const degree = localized(item.degree);
+        const degree = localized(item.degree || item.title || item.institution || item.school);
         const year = item.year ? String(item.year) : "";
-        const title = [institution, degree].filter(Boolean).join(" — ");
         const description = localized(item.description || item.text);
+        const featuredClass = index === 0 ? " education-item-featured" : "";
+        const institutionBlock = institution ? `<p class="education-institution">${institution}</p>` : "";
+        const yearBlock = year ? `<p class="education-year">${year}</p>` : "";
 
         return `
-          <div class="education-item">
-            <h3>${title}</h3>
-            ${year ? `<p class="experience-period">${year}</p>` : ""}
+          <div class="education-item${featuredClass}">
+            ${institutionBlock}
+            <h3>${degree}</h3>
+            ${yearBlock}
             ${description ? `<p class="education-text">${description}</p>` : ""}
           </div>
         `;
@@ -320,7 +339,16 @@ function renderEducation() {
     const items = state.languages.length ? state.languages : fallbackLanguages;
 
     nodes.languagesList.innerHTML = items
-      .map((item) => `<li>${localized(item.name)} — ${localized(item.level)}</li>`)
+      .map((item, index) => {
+        const name = localized(item.name);
+        const level = localized(item.level);
+        return `
+          <li class="language-item${index === 0 ? " language-item-primary" : ""}">
+            <span class="language-name">${name}</span>
+            <span class="language-level">${level}</span>
+          </li>
+        `;
+      })
       .join("");
   }
 }
@@ -381,7 +409,7 @@ function renderExperience() {
 
   nodes.experienceTimeline.innerHTML = state.experience
     .filter((item) => item && item.country !== "Global" && item.company !== "GitHub")
-    .map((item) => {
+    .map((item, index) => {
       const country = countryLabel(item.country);
       const company = normalizeCompany(item.company);
       const header = `${country.flag} ${currentLanguage === "ru" ? country.ru : country.en} - ${company}`;
@@ -430,8 +458,10 @@ function renderExperience() {
         `
         : "";
 
+      const featuredClass = index === 0 ? " experience-item-featured" : "";
+
       return `
-        <div class="experience-item">
+        <div class="experience-item${featuredClass}">
           <h3>${header}</h3>
           ${periodBlock}
           <ul>${list}</ul>
@@ -490,24 +520,35 @@ function renderProjects() {
     setText(nodes.projectsTitle, labels[currentLanguage]["projects.title"]);
   }
 
+  const projectsSubtitle = document.querySelector("#projects .section-note");
+  if (projectsSubtitle) {
+    setText(projectsSubtitle, labels[currentLanguage]["projects.subtitle"]);
+  }
+
   if (!nodes.projectsGrid) {
     return;
   }
 
   nodes.projectsGrid.innerHTML = state.projects
-    .map(
-      (project) => `
-        <article class="project-card reveal">
-          <p class="project-index">${project.id}</p>
+    .map((project, index) => {
+      const featuredClass = index === 0 || project.featured ? " project-card-featured" : "";
+      const tags = Array.isArray(project.tags) ? project.tags : [];
+
+      return `
+        <article class="project-card${featuredClass} reveal">
+          <div class="project-topline">
+            <p class="project-index">${project.id}</p>
+            ${featuredClass ? `<span class="project-badge">${currentLanguage === "en" ? "Featured" : "Выбранный кейс"}</span>` : ""}
+          </div>
           <h3>${project.title}</h3>
           <p>${localized(project.description)}</p>
           <div class="project-tags">
-            ${project.tags.map((tag) => `<span>${tag}</span>`).join("")}
+            ${tags.map((tag) => `<span>${tag}</span>`).join("")}
           </div>
-          <a href="${project.href}" target="_blank" rel="noreferrer">${labels[currentLanguage]["projects.open"]}</a>
+          <a class="project-link" href="${project.href}" target="_blank" rel="noreferrer">${labels[currentLanguage]["projects.open"]}</a>
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 
   document.querySelectorAll("#projects .reveal").forEach((element) => {
@@ -552,6 +593,10 @@ function renderCertificates() {
 
   if (nodes.certificatesTitle) {
     setText(nodes.certificatesTitle, labels[currentLanguage]["edu.title"]);
+  }
+
+  if (nodes.certificatesSubtitle) {
+    setText(nodes.certificatesSubtitle, labels[currentLanguage]["edu.subtitle"]);
   }
 
   if (nodes.certificatesLabel) {
