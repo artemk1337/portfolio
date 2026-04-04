@@ -1,7 +1,14 @@
 {
   "items": [
     {
-      "school": "MISIS",
+      "school": {
+        "ru": "МИСИС · Москва",
+        "en": "MISIS · Moscow"
+      },
+      "country": {
+        "ru": "Россия",
+        "en": "Russia"
+      },
       "degree": {
         "ru": "Магистратура (MSc) в Data Science",
         "en": "MSc in Data Science"
@@ -13,7 +20,14 @@
       }
     },
     {
-      "school": "MISIS",
+      "school": {
+        "ru": "МИСИС · Москва",
+        "en": "MISIS · Moscow"
+      },
+      "country": {
+        "ru": "Россия",
+        "en": "Russia"
+      },
       "degree": {
         "ru": "Бакалавриат (BSc) в Прикладной математике",
         "en": "BSc in Applied Mathematics"
@@ -26,4 +40,3 @@
     }
   ]
 }
-

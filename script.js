@@ -314,7 +314,8 @@ function renderEducation() {
   if (nodes.educationList) {
     const fallbackEducation = [
       {
-        institution: { ru: "MISIS", en: "MISIS" },
+        institution: { ru: "МИСИС · Москва", en: "MISIS · Moscow" },
+        country: { ru: "Россия", en: "Russia" },
         degree: { ru: "MSc in Data Science", en: "MSc in Data Science" },
         year: "2024",
         description: {
@@ -323,7 +324,8 @@ function renderEducation() {
         },
       },
       {
-        institution: { ru: "MISIS", en: "MISIS" },
+        institution: { ru: "МИСИС · Москва", en: "MISIS · Moscow" },
+        country: { ru: "Россия", en: "Russia" },
         degree: { ru: "BSc in Applied Mathematics", en: "BSc in Applied Mathematics" },
         year: "2022",
         description: {
@@ -338,11 +340,13 @@ function renderEducation() {
     nodes.educationList.innerHTML = items
       .map((item, index) => {
         const institution = localized(item.institution || item.school);
+        const country = localized(item.country);
         const degree = localized(item.degree || item.title || item.institution || item.school);
         const year = item.year ? String(item.year) : "";
         const description = localized(item.description || item.text);
         const featuredClass = index === 0 ? " education-item-featured" : "";
-        const institutionBlock = institution ? `<p class="education-institution">${institution}</p>` : "";
+        const institutionText = country ? `${institution} · ${country}` : institution;
+        const institutionBlock = institutionText ? `<p class="education-institution">${institutionText}</p>` : "";
         const yearBlock = year ? `<p class="education-year">${year}</p>` : "";
 
         return `
