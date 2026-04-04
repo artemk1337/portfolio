@@ -52,7 +52,7 @@ const labels = {
     "hero.subtitle": "Бэкенд · Golang · Python · Computer Vision",
     "hero.lead":
       "Senior backend engineer с 5+ годами опыта в высоконагруженных системах, Golang, микросервисах, производительности и наблюдаемости.",
-    "hero.panel.focus.label": "Обо мне",
+    "hero.panel.focus.label": "Профиль",
     "hero.panel.focus.title": "Senior / Lead Backend Engineer",
     "hero.panel.focus.text":
       "Senior backend engineer с опытом в высоконагруженных системах, Golang и надёжности.",
@@ -109,7 +109,7 @@ const labels = {
     "hero.subtitle": "Backend · Golang · Python · Computer Vision",
     "hero.lead":
       "Senior backend engineer with 5+ years in high-load systems, Golang, microservices, performance, and observability.",
-    "hero.panel.focus.label": "About me",
+    "hero.panel.focus.label": "Profile",
     "hero.panel.focus.title": "Senior / Lead Backend Engineer",
     "hero.panel.focus.text":
       "Senior backend engineer with experience in high-load systems, Golang, and reliability.",

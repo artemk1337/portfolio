@@ -20,8 +20,8 @@
   "panel": {
     "focus": {
       "label": {
-        "ru": "Обо мне",
-        "en": "About me"
+        "ru": "Профиль",
+        "en": "Profile"
       },
       "title": {
         "ru": "Senior / Lead Backend Engineer",
