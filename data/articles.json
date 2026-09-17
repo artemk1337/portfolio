@@ -32,6 +32,20 @@
         "en": "A short talk about designing Go microservices: typical pitfalls and practices that help balance speed and simplicity."
       },
       "tags": ["VK Video", "Meetup", "Speaking"]
+    },
+    {
+      "id": "04",
+      "kind": "software",
+      "title": {
+        "ru": "Считывание электрокардиограммы и оптического сигнала интенсивности отражения кожи человека с экспериментальной установки",
+        "en": "Reading an electrocardiogram and the optical signal of human skin reflectance intensity from an experimental setup"
+      },
+      "href": "https://www.elibrary.ru/item.asp?id=49196906",
+      "description": {
+        "ru": "Свидетельство о государственной регистрации программы для ЭВМ RU 2022661530. Программа на Python для считывания электрокардиограммы и оптического сигнала с экспериментальной установки. Правообладатель — МИСиС, 2022 год.",
+        "en": "State registration certificate for a computer program, RU 2022661530. A Python program for reading an electrocardiogram and an optical signal from an experimental setup. Rights holder: MISIS, 2022."
+      },
+      "tags": ["eLIBRARY", "Python", "Biomedical signals"]
     }
   ]
 }

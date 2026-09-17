@@ -41,7 +41,7 @@ const labels = {
     "nav.experience": "Опыт",
     "nav.languages": "Языки",
     "nav.projects": "Проекты",
-    "nav.articles": "Статьи и выступления",
+    "nav.articles": "Публикации, разработки и выступления",
     "nav.stack": "Стек",
     "nav.education": "Образование",
     "nav.certificates": "Сертификаты",
@@ -64,7 +64,7 @@ const labels = {
     "hero.metric1.label": "разработка бэкенда",
     "hero.metric2.value": "10M RPS",
     "hero.metric2.label": "масштаб продакшена",
-    "hero.metric3.value": "4 инженера",
+    "hero.metric3.value": "6 инженеров",
     "hero.metric3.label": "руководство командой",
     "hero.metrics.label": "Ключевые метрики",
     "hero.skills.label": "Ключевые навыки",
@@ -90,11 +90,12 @@ const labels = {
     "projects.title": "Выбранные репозитории и инженерные кейсы",
     "projects.subtitle": "Репозитории, где видны подход к данным, backend и инженерной реализации",
     "projects.open": "Открыть",
-    "articles.eyebrow": "Статьи и выступления",
-    "articles.title": "Публикации и выступления",
-    "articles.subtitle": "Материалы, где есть прикладной ML и опыт выступлений на митапах",
+    "articles.eyebrow": "Публикации, разработки и выступления",
+    "articles.title": "Публикации, разработки и выступления",
+    "articles.subtitle": "Публикации, зарегистрированные разработки и опыт выступлений",
     "articles.type.article": "Статья",
     "articles.type.talk": "Выступление",
+    "articles.type.software": "Программа для ЭВМ",
     "articles.item1.text":
       "Статья о том, как проектировать микросервисы на Go: от постановки требований и оценки нагрузки до оптимизации RPS, работы с GC и практик вроде буферизации, gRPC, sync.Pool и кешей.",
     "articles.item2.text":
@@ -116,7 +117,7 @@ const labels = {
     "nav.experience": "Experience",
     "nav.languages": "Languages",
     "nav.projects": "Projects",
-    "nav.articles": "Articles & talks",
+    "nav.articles": "Publications, software & talks",
     "nav.stack": "Stack",
     "nav.education": "Education",
     "nav.certificates": "Certificates",
@@ -139,7 +140,7 @@ const labels = {
     "hero.metric1.label": "backend development",
     "hero.metric2.value": "10M RPS",
     "hero.metric2.label": "production scale",
-    "hero.metric3.value": "4 engineers",
+    "hero.metric3.value": "6 engineers",
     "hero.metric3.label": "team leadership",
     "hero.metrics.label": "Key metrics",
     "hero.skills.label": "Key skills",
@@ -165,11 +166,12 @@ const labels = {
     "projects.title": "Selected repositories and engineering cases",
     "projects.subtitle": "Repositories that show data work, backend depth, and engineering execution",
     "projects.open": "Open",
-    "articles.eyebrow": "Articles & talks",
-    "articles.title": "Publications and talks",
-    "articles.subtitle": "Materials that show applied ML work and meetup speaking experience",
+    "articles.eyebrow": "Publications, software & talks",
+    "articles.title": "Publications, software & talks",
+    "articles.subtitle": "Publications, registered software, and meetup speaking experience",
     "articles.type.article": "Article",
     "articles.type.talk": "Talk",
+    "articles.type.software": "Computer program",
     "articles.item1.text":
       "An article about designing Go microservices: from requirements and load analysis to optimizing RPS, GC behavior, and practices like buffering, gRPC, sync.Pool, and caches.",
     "articles.item2.text":
@@ -653,7 +655,11 @@ function renderArticles() {
   nodes.articlesGrid.innerHTML = state.articles
     .map((item, index) => {
       const tags = Array.isArray(item.tags) ? item.tags : [];
-      const kind = item.kind === "talk" ? "articles.type.talk" : "articles.type.article";
+      const kind = item.kind === "talk"
+        ? "articles.type.talk"
+        : item.kind === "software"
+          ? "articles.type.software"
+          : "articles.type.article";
 
       return `
         <article class="article-card reveal">
@@ -661,7 +667,7 @@ function renderArticles() {
             <p class="project-index">${item.id || String(index + 1).padStart(2, "0")}</p>
             <span class="project-badge">${labels[currentLanguage][kind]}</span>
           </div>
-          <h3>${item.title}</h3>
+          <h3>${localized(item.title)}</h3>
           <p>${localized(item.description)}</p>
           <div class="project-tags">
             ${tags.map((tag) => `<span>${tag}</span>`).join("")}
