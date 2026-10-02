@@ -2,6 +2,20 @@
   "items": [
     {
       "id": "01",
+      "title": "3x-ui · Open Source",
+      "href": "https://github.com/MHSanaei/3x-ui/pull/6702",
+      "description": {
+        "ru": "Контрибьютор 3x-ui — популярной панели управления Xray. Исправил совместимость экспорта TCP Fragment со старыми клиентами Xray. PR #6702 принят в основной репозиторий.",
+        "en": "Contributor to 3x-ui, a popular Xray management panel. Fixed TCP Fragment export compatibility with older Xray clients. PR #6702 was merged into the upstream repository."
+      },
+      "tags": [
+        "Go",
+        "Open Source",
+        "Merged PR"
+      ]
+    },
+    {
+      "id": "02",
       "title": "CupIT2020-DS-final",
       "href": "https://github.com/artemk1337/CupIT2020-DS-final",
       "description": {
@@ -11,7 +25,7 @@
       "tags": ["Data Science", "Hackathon", "3rd place"]
     },
     {
-      "id": "02",
+      "id": "03",
       "title": "Fintech Security Superhero",
       "href": "https://github.com/artemk1337/Fintech-Security-Superhero-hack-Final-stage",
       "description": {
@@ -21,7 +35,7 @@
       "tags": ["Hackathon", "Teamwork", "Delivery"]
     },
     {
-      "id": "03",
+      "id": "04",
       "title": "GoFast",
       "href": "https://github.com/artemk1337/gofast",
       "description": {
@@ -31,7 +45,7 @@
       "tags": ["Go", "Backend", "Modern stack"]
     },
     {
-      "id": "04",
+      "id": "05",
       "title": "lem-in",
       "href": "https://github.com/artemk1337/lem-in",
       "description": {
@@ -41,7 +55,7 @@
       "tags": ["C", "Algorithms", "Graphs"]
     },
     {
-      "id": "05",
+      "id": "06",
       "title": "Zernike transform",
       "href": "https://github.com/artemk1337/zernike_transform",
       "description": {
@@ -51,7 +65,7 @@
       "tags": ["Python", "Image processing", "Zernike"]
     },
     {
-      "id": "06",
+      "id": "07",
       "title": "ML Models on Pulsar",
       "href": "https://github.com/artemk1337/ML_test_all_models_on_pulsar",
       "description": {
@@ -61,7 +75,7 @@
       "tags": ["Python", "ML", "Metrics"]
     },
     {
-      "id": "07",
+      "id": "08",
       "title": "SiameseDCGAN",
       "href": "https://github.com/artemk1337/SiameseDCGAN-with-embedding-layers-and-contrastive-loss",
       "description": {

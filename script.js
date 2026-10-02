@@ -56,7 +56,7 @@ const labels = {
     "hero.projects": "Смотреть проекты",
     "hero.role": "Ведущий разработчик бэкенда",
     "hero.lead":
-      "Строю надёжные распределённые системы с фокусом на задержки, наблюдаемость и результат.",
+      "Строю надёжные распределённые системы с фокусом на задержки, наблюдаемость и результат. Контрибьютор популярных open-source репозиториев на GitHub, включая 3x-ui.",
     "hero.panel.focus.label": "Профиль",
     "hero.panel.focus.title": "Бэкенд-системы",
     "hero.panel.focus.text": "Go, микросервисы, производительность и наблюдаемость.",
@@ -132,7 +132,7 @@ const labels = {
     "hero.projects": "View projects",
     "hero.role": "Senior / Lead Backend Engineer",
     "hero.lead":
-      "Building reliable distributed systems with a focus on latency, observability, and delivery.",
+      "Building reliable distributed systems with a focus on latency, observability, and delivery. Contributor to popular open-source repositories on GitHub, including 3x-ui.",
     "hero.panel.focus.label": "Profile",
     "hero.panel.focus.title": "Backend systems",
     "hero.panel.focus.text": "Go, microservices, performance, and observability.",
