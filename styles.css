@@ -931,6 +931,13 @@ h1 {
   font-weight: 600;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
 .project-link {
   margin-top: auto;
   align-self: flex-start;

@@ -4,9 +4,16 @@
       "id": "01",
       "title": "3x-ui · Open Source",
       "href": "https://github.com/MHSanaei/3x-ui/pull/6702",
+      "release": {
+        "href": "https://github.com/MHSanaei/3x-ui/releases/tag/v3.9.0",
+        "label": {
+          "ru": "Релиз v3.9.0",
+          "en": "Release v3.9.0"
+        }
+      },
       "description": {
-        "ru": "Контрибьютор 3x-ui — популярной панели управления Xray. Исправил совместимость экспорта TCP Fragment со старыми клиентами Xray. PR #6702 принят в основной репозиторий.",
-        "en": "Contributor to 3x-ui, a popular Xray management panel. Fixed TCP Fragment export compatibility with older Xray clients. PR #6702 was merged into the upstream repository."
+        "ru": "Контрибьютор 3x-ui — популярной панели управления Xray. Исправил совместимость экспорта TCP Fragment со старыми клиентами Xray. PR #6702 принят и включён в релиз v3.9.0.",
+        "en": "Contributor to 3x-ui, a popular Xray management panel. Fixed TCP Fragment export compatibility with older Xray clients. PR #6702 was merged and included in release v3.9.0."
       },
       "tags": [
         "Go",

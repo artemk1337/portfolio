@@ -630,7 +630,10 @@ function renderProjects() {
           <div class="project-tags">
             ${tags.map((tag) => `<span>${tag}</span>`).join("")}
           </div>
-          <a class="project-link" href="${project.href}" target="_blank" rel="noreferrer">${labels[currentLanguage]["projects.open"]}</a>
+          <div class="project-links">
+            <a class="project-link" href="${project.href}" target="_blank" rel="noreferrer">${labels[currentLanguage]["projects.open"]}</a>
+            ${project.release ? `<a class="project-link" href="${project.release.href}" target="_blank" rel="noreferrer">${localized(project.release.label)}</a>` : ""}
+          </div>
         </article>
       `;
     })
