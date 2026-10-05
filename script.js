@@ -61,16 +61,17 @@ const labels = {
     "hero.role": "Ведущий разработчик бэкенда",
     "hero.lead":
       "Строю надёжные распределённые системы с фокусом на задержки, наблюдаемость и результат.",
-    "hero.panel.focus.label": "Профиль",
-    "hero.panel.focus.title": "Бэкенд-системы",
+    "hero.panel.focus.label": "Инженерный фокус",
+    "hero.panel.focus.title": "Задачи, которые решаю",
     "hero.panel.focus.text": "Go, микросервисы, производительность и наблюдаемость.",
-    "hero.metric1.value": "5+ лет",
-    "hero.metric1.label": "разработка бэкенда",
-    "hero.metric2.value": "10M RPS",
-    "hero.metric2.label": "масштаб продакшена",
-    "hero.metric3.value": "6 инженеров",
-    "hero.metric3.label": "руководство командой",
-    "hero.metrics.label": "Ключевые метрики",
+    "hero.expertise1.title": "Архитектура сервисов",
+    "hero.expertise1.text": "Проектирование API, интеграции и разделение монолита на микросервисы.",
+    "hero.expertise2.title": "Производительность",
+    "hero.expertise2.text": "Профилирование, оптимизация SQL, памяти и критических участков кода.",
+    "hero.expertise3.title": "Работа с командой",
+    "hero.expertise3.text": "Технические интервью, менторинг и code review.",
+    "hero.expertise.label": "Направления работы",
+    "hero.results.link": "Подробнее об опыте",
     "hero.skills.label": "Ключевые навыки",
     "hero.skill1": "Go",
     "hero.skill2": "Микросервисы",
@@ -141,16 +142,17 @@ const labels = {
     "hero.role": "Senior / Lead Backend Engineer",
     "hero.lead":
       "Building reliable distributed systems with a focus on latency, observability, and delivery.",
-    "hero.panel.focus.label": "Profile",
-    "hero.panel.focus.title": "Backend systems",
+    "hero.panel.focus.label": "Engineering focus",
+    "hero.panel.focus.title": "How I contribute",
     "hero.panel.focus.text": "Go, microservices, performance, and observability.",
-    "hero.metric1.value": "5+ years",
-    "hero.metric1.label": "backend development",
-    "hero.metric2.value": "10M RPS",
-    "hero.metric2.label": "production scale",
-    "hero.metric3.value": "6 engineers",
-    "hero.metric3.label": "team leadership",
-    "hero.metrics.label": "Key metrics",
+    "hero.expertise1.title": "Service architecture",
+    "hero.expertise1.text": "API design, integrations, and decomposing monoliths into microservices.",
+    "hero.expertise2.title": "Performance",
+    "hero.expertise2.text": "Profiling and optimizing SQL, memory, and critical code paths.",
+    "hero.expertise3.title": "Engineering teams",
+    "hero.expertise3.text": "Technical interviews, mentoring, and code reviews.",
+    "hero.expertise.label": "Areas of expertise",
+    "hero.results.link": "Explore my experience",
     "hero.skills.label": "Key skills",
     "hero.skill1": "Go",
     "hero.skill2": "Microservices",
@@ -870,35 +872,6 @@ document.addEventListener("keydown", (event) => {
 });
 sectionLinks.forEach((link) => link.addEventListener("click", closeNavigation));
 document.querySelector(".brand").addEventListener("click", closeNavigation);
-
-const previewParameters = new URLSearchParams(window.location.search);
-const navigationVariant = previewParameters.get("navigation");
-if (["rail", "card", "drawer"].includes(navigationVariant)) {
-  document.body.dataset.navigation = navigationVariant;
-}
-if (previewParameters.get("preview") === "navigation") {
-  const preview = document.createElement("div");
-  preview.className = "navigation-preview";
-  preview.setAttribute("aria-label", "Варианты навигации");
-  for (const [variant, label] of [["rail", "1 · Боковая навигация"], ["card", "2 · Карточка слева"], ["drawer", "3 · Скрытое меню"]]) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.textContent = label;
-    button.dataset.variant = variant;
-    button.setAttribute("aria-pressed", String(variant === (navigationVariant || "rail")));
-    button.addEventListener("click", () => {
-      closeNavigation();
-      document.body.dataset.navigation = variant;
-      preview.querySelectorAll("button").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
-      const url = new URL(window.location.href);
-      url.searchParams.set("navigation", variant);
-      window.history.replaceState(null, "", url);
-      syncLangSwitchIndicator();
-    });
-    preview.append(button);
-  }
-  document.body.append(preview);
-}
 
 if ("IntersectionObserver" in window) {
   const sectionNavigationObserver = new IntersectionObserver(

@@ -20,12 +20,12 @@
   "panel": {
     "focus": {
       "label": {
-        "ru": "Профиль",
-        "en": "Profile"
+        "ru": "Инженерный фокус",
+        "en": "Engineering focus"
       },
       "title": {
-        "ru": "Бэкенд-системы",
-        "en": "Backend systems"
+        "ru": "Задачи, которые решаю",
+        "en": "How I contribute"
       },
       "text": {
         "ru": "Go, микросервисы, производительность и наблюдаемость.",
@@ -43,8 +43,18 @@
       "en": "Key skills"
     },
     "skills": {
-      "ru": ["Go", "Микросервисы", "Наблюдаемость", "Производительность"],
-      "en": ["Go", "Microservices", "Observability", "Performance"]
+      "ru": [
+        "Go",
+        "Микросервисы",
+        "Наблюдаемость",
+        "Производительность"
+      ],
+      "en": [
+        "Go",
+        "Microservices",
+        "Observability",
+        "Performance"
+      ]
     }
   },
   "stats": {
