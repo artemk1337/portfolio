@@ -38,10 +38,14 @@ const nodes = {
 
 const labels = {
   ru: {
+    "nav.label": "Навигация по разделам",
+    "nav.more": "Ещё",
+    "nav.toggle": "Открыть меню",
+    "lang.label": "Выбор языка",
     "nav.experience": "Опыт",
     "nav.languages": "Языки",
     "nav.projects": "Проекты",
-    "nav.articles": "Публикации, разработки и выступления",
+    "nav.articles": "Публикации",
     "nav.stack": "Стек",
     "nav.education": "Образование",
     "nav.certificates": "Сертификаты",
@@ -114,10 +118,14 @@ const labels = {
     "scrollTop": "Наверх",
   },
   en: {
+    "nav.label": "Section navigation",
+    "nav.more": "More",
+    "nav.toggle": "Open navigation",
+    "lang.label": "Language selection",
     "nav.experience": "Experience",
     "nav.languages": "Languages",
     "nav.projects": "Projects",
-    "nav.articles": "Publications, software & talks",
+    "nav.articles": "Publications",
     "nav.stack": "Stack",
     "nav.education": "Education",
     "nav.certificates": "Certificates",
@@ -834,5 +842,92 @@ if ("IntersectionObserver" in window) {
 
 window.addEventListener("scroll", updateScrollTopButton, { passive: true });
 updateScrollTopButton();
+
+const sectionLinks = document.querySelectorAll('.nav a[href^="#"]');
+const navigationToggle = document.querySelector(".nav-toggle");
+function closeNavigation() {
+  document.body.classList.remove("nav-open");
+  navigationToggle.setAttribute("aria-expanded", "false");
+  document.querySelector("main").inert = false;
+  document.querySelector(".footer").inert = false;
+}
+
+navigationToggle.addEventListener("click", () => {
+  const open = document.body.classList.toggle("nav-open");
+  navigationToggle.setAttribute("aria-expanded", String(open));
+  document.querySelector("main").inert = open;
+  document.querySelector(".footer").inert = open;
+  if (open) {
+    syncLangSwitchIndicator();
+  }
+});
+document.querySelector(".nav-scrim").addEventListener("click", closeNavigation);
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeNavigation();
+    navigationToggle.focus();
+  }
+});
+sectionLinks.forEach((link) => link.addEventListener("click", closeNavigation));
+document.querySelector(".brand").addEventListener("click", closeNavigation);
+
+const previewParameters = new URLSearchParams(window.location.search);
+const navigationVariant = previewParameters.get("navigation");
+if (["rail", "card", "drawer"].includes(navigationVariant)) {
+  document.body.dataset.navigation = navigationVariant;
+}
+if (previewParameters.get("preview") === "navigation") {
+  const preview = document.createElement("div");
+  preview.className = "navigation-preview";
+  preview.setAttribute("aria-label", "Варианты навигации");
+  for (const [variant, label] of [["rail", "1 · Боковая навигация"], ["card", "2 · Карточка слева"], ["drawer", "3 · Скрытое меню"]]) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = label;
+    button.dataset.variant = variant;
+    button.setAttribute("aria-pressed", String(variant === (navigationVariant || "rail")));
+    button.addEventListener("click", () => {
+      closeNavigation();
+      document.body.dataset.navigation = variant;
+      preview.querySelectorAll("button").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+      const url = new URL(window.location.href);
+      url.searchParams.set("navigation", variant);
+      window.history.replaceState(null, "", url);
+      syncLangSwitchIndicator();
+    });
+    preview.append(button);
+  }
+  document.body.append(preview);
+}
+
+if ("IntersectionObserver" in window) {
+  const sectionNavigationObserver = new IntersectionObserver(
+    (entries) => {
+      const activeEntry = entries.find((entry) => entry.isIntersecting);
+      if (!activeEntry) {
+        return;
+      }
+
+      sectionLinks.forEach((link) => {
+        if (link.hash === `#${activeEntry.target.id}`) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    },
+    {
+      rootMargin: "-28% 0px -62% 0px",
+      threshold: 0,
+    }
+  );
+
+  sectionLinks.forEach((link) => {
+    const section = document.querySelector(link.hash);
+    if (section) {
+      sectionNavigationObserver.observe(section);
+    }
+  });
+}
 
 bootstrap();
